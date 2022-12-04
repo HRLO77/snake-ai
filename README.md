@@ -15,7 +15,8 @@ Epsilon is a float between 0-1, representing the chance of random actions taken 
 Gamma is the discount factor (see the Bellman equation), how much the model agent should give priority to long-term rewards
 Epochs in training are how many times the model should play the game before it dies.
 Decay is how much Epsilon should decrease over time.
-For more information on the model learns, see the [Bellman equation](https://en.wikipedia.org/wiki/Bellman_equation) and train.py
+For more information on the model learns, see the [Bellman equation](https://en.wikipedia.org/wiki/Bellman_equation) and train.py.
+See ./training.mp4 for how the model progresses through training.
 ## playing
 To make the computer play after training, run `python play.py` and open the pickle file you want the qtable from.
 ## Environment
