@@ -10,6 +10,7 @@ To train your computer to play snake, run `python train.py` with your hyper-para
 * gamma
 * epochs
 * decay
+
 Epsilon is a float between 0-1, representing the chance of random actions taken to explore the environment.
 Gamma is the discount factor (see the Bellman equation), how much the model agent should give priority to long-term rewards
 Epochs in training are how many times the model should play the game before it dies.
