@@ -1,0 +1,11 @@
+aioconsole
+aiofiles
+keyboard
+numpy
+tensorflow
+pandas
+gym
+pyvirtualdisplay
+pyglet
+tf_agents
+jax
