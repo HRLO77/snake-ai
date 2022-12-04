@@ -1,7 +1,4 @@
 # snake-ai
-<<<<<<< HEAD
-A reinforcement learning algorithm that plays snake
-=======
 A reinforcement learning algorithm written in python using numpy.
 ## installing requirements
 `python -m pip install -r req.txt`
@@ -39,4 +36,3 @@ qtable: dict[tuple[int], list[int]] = Environment.gen()  # instantiate the q-tab
 ```
 # end
 Thanks for checking out this repository!
->>>>>>> 512e616 (Added all files)

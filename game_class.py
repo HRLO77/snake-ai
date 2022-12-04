@@ -1,4 +1,4 @@
-
+# The class used for training the agent in an environment and testing it.
 import json
 import random
 import keyboard

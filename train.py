@@ -2,22 +2,21 @@ from game_class import Environment
 import numpy as np
 import pickle
 import os
-# from tensorflow import function # if you want this to run a bit faster,
-# uncomment this 
+# from tensorflow import function
+# if you want this to run a bit faster, uncomment this import
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 done = False
-epochs = 100000  # steps until dead
+epochs = 25_000  # games played
 gamma = .99  # gamma is probably too high
 epsilon = 1.  # same for epsilon
-decay = 0.01  # decay is alr
+decay = 0.01  # decay is alright
 qtable: dict[tuple, list] = Environment.gen()  # instantiate a qtable
 
 env = Environment()  # start the environment
 env.reset()  # reset the environment
 fast = True  # cut down on train time
 try:
-    # @function(jit_compile=True)  # if you want to jit compile training
-    # uncomment this 
+    # @function(jit_compile=True)  # if you want to jit compile training uncomment this 
     def f():
         global qtable, epochs, done, gamma, epsilon, fast, env
         for i in range(epochs):
