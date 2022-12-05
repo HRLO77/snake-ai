@@ -2,11 +2,12 @@ from game_class import Environment
 import numpy as np
 import pickle
 import os
+import random
 # from tensorflow import function
 # if you want this to run a bit faster, uncomment this import
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 done = False
-epochs = 25_000  # games played
+epochs = 100_000  # games played
 gamma = .99  # gamma is probably too high
 epsilon = 1.  # same for epsilon
 decay = 0.01  # decay is alright
@@ -33,6 +34,7 @@ try:
                     action = env.randAction()
                 # if not select max action in Qtable (act greedy)
                 else:
+                    if not state in qtable:qtable[state] = [random.random() for i in '*'*4]
                     action = qtable[state].index(max(qtable[state]))
                 next_state, reward, done, et = env.move(action)
                 if not fast:tot += reward
@@ -45,6 +47,8 @@ try:
                     done = True
                 epsilon -= epsilon/10e5
                 # update qtable value with Bellman equation
+                if not action in qtable:qtable[state] = [random.random() for i in '*'*4]
+                if not next_state in qtable:qtable[next_state] = [random.random() for i in '*'*4]
                 qtable[state][action] = reward + (gamma * max(qtable[next_state]))
                 if not fast:env.refresh()
                 state = next_state

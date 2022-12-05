@@ -11,6 +11,9 @@ class Environment:
   
     def setup(self):
         '''sets up the game (if training, run .reset() instead)'''
+        self.position = {}
+        self.total_pos = []
+        self.my_pos = tuple()
         for i in range(0, self.cube):
             for v in range(0, self.cube):
                 if v != (self.cube - 1):
@@ -235,9 +238,5 @@ class Environment:
    
     @staticmethod
     def gen():
-        '''Instantiates a q-table.'''
-        s = set()
-        while len(s) != 1024:
-            s.add((tuple([random.choice([0, 1]) for i in '~'*8] +
-                         [random.choice([0, 1, 2, 3])])))
-        return {i: [random.random() for i in '_'*4] for i in s}
+        '''Loads the q-table.'''
+        with open('./qtable.pickle', 'rb') as f:return __import__('pickle').load(f)

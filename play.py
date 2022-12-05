@@ -1,27 +1,31 @@
 # plays snake with the q-table saved from training
-import game_class
+from game_class import Environment
 import numpy as np
 import pickle
-with open('./qtable.pickle', 'rb') as f:qtable: list = \
-    pickle.load(f)
-env = game_class.Environment()
+from time import sleep
+qtable = Environment.gen()
+env = Environment()
 state, reward, done, et = env.reset()
 steps = 0
 epsilon = 0.01
 done = False
 d = False
-env.random_food()  # 5 random apples
+env.random_food()
 state = env.get_current_state()
-while not done:
+
+while 1:
     action = qtable[state].index(max(qtable[state]))
-    # print(action)
     if np.random.uniform() < epsilon:
         state, reward, done, et = env.move(env.randAction())
     else:
         state, reward, done, et = env.move(action)
+    if done:
+        env.reset()
+        env.random_food()
     epsilon -= epsilon/10e4
     env.refresh()
     if reward > 0:
         epsilon -= 0.01
         et = False
         env.random_food()
+    

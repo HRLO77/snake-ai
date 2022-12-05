@@ -12,29 +12,38 @@ To train your computer to play snake, run `python train.py` with your hyper-para
 * decay
 
 Epsilon is a float between 0-1, representing the chance of random actions taken to explore the environment.
-Gamma is the discount factor (see the Bellman equation), how much the model agent should give priority to long-term rewards
+
+Gamma is the discount factor (see the Bellman equation), how much the model agent should give priority to long-term rewards.
+
 Epochs in training are how many times the model should play the game before it dies.
+
 Decay is how much Epsilon should decrease over time.
+
 For more information on the model learns, see the [Bellman equation](https://en.wikipedia.org/wiki/Bellman_equation) and train.py.
+
 See ./training.mp4 for how the model progresses through training.
 ## playing
 To make the computer play after training, run `python play.py` and open the pickle file you want the qtable from.
-## Environment
-The environment is a grid, with one apple and snake.
-There are 1024 possible states that the agent can see.
-(Through Environment.get_current_state in game_class.py)
-Being a tuple of integers.
-(danger_up: 0|1, danger_left: 0|1, danger_down: 0|1, danger_right: 0|1, apple_up: 0|1, apple_lef: 0|1, apple_down: 0|1, apple_right: 0|1, current_direction: 0|1|2|3)
+## New states!
+For more accurate (but longer, slower, heavier training) more accurate states are returned for the agent.
+* An encoded 5x5 grid around the head of the snake is returned along with the rest of the previous state.
 
-To create your own environment, use the `Environment` class from game_class.py
-Example:
+This provides far more states for more precision to update!
+
+However, because of the complexity of this extra item, qtable values cannot be instantiated on demand without taking a very long time, lots of resources and returning impossible (to reach) states.
+
+So during training, states that have not be recorded are added on the training (like interpreting VS compiling).
+
+I updated qtable values for 100,000 epochs and stored them in *qtable.pickle*, you can randomize values of the dictionary for your own training if you wish.
 ```python
 from game_class import Environment
-env = Environment(cube=50, to_char='@')  # a 50x50 grid with '@' as the character used.
+import random
+env = Environment(cube=50)  # a 50x50 grid with '@' as the character used.
 state, reward, dead, eaten = env.reset()  # start the environment
 env.random_food()  # spawn an apple
 state: tuple[int] = env.get_current_state()  # get the current state
-qtable: dict[tuple[int], list[int]] = Environment.gen()  # instantiate the q-table
+qtable = Environment.gen()  # load the q-table
+qtable = {i: [random.random() for i in  '*'*4]for i in qtable.keys()}  # randomize qtable values
 ```
 # end
 Thanks for checking out this repository!
