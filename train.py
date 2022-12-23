@@ -10,7 +10,7 @@ pyximport.install(True, True,)
 # if you want this to run a bit faster, uncomment this import
 
 done = False
-epochs = 100_000_000_000  # games played
+epochs = 100_000_000_000_000  # games played
 gamma = .99  # gamma is probably too high
 epsilon = 1.  # same for epsilon
 decay = 0.01  # decay is alright
@@ -18,7 +18,7 @@ qtable: dict[tuple, list] = Environment.gen()  # load a qtable
 
 env = Environment()  # start the environment
 env.reset()  # reset the environment
-fast = True  # cut down on train time
+fast = False  # cut down on train time
 try:
     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this 
     def f():
@@ -37,7 +37,7 @@ try:
                     action = env.randAction()
                 # if not select max action in Qtable (act greedy)
                 else:
-                    if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]
+                    if not state in qtable:qtable[state] = [np.random.random() for i in '****']
                     action = qtable[state].index(max(qtable[state]))
                 next_state, reward, done, et = env.move(action)
 
@@ -51,19 +51,21 @@ try:
                     done = True
                 epsilon -= epsilon/10e5
                 # update qtable value with Bellman equation
-                if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '*'*4]
-                if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]
+                if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '****']
+                if not state in qtable:qtable[state] = [np.random.random() for i in '****']
                 qtable[state][action] = reward + (gamma * max(qtable[next_state]))
                 if not fast:env.refresh()
+                    
                 state = next_state
 
             # The more we learn, the less we take random actions
             epsilon -= epsilon * decay
-            if not fast:  # log details
-                try:
-                    print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
-                except Exception:
-                    print(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
+            # if not fast:  # log details
+                # with open('./logs.csv', 'a') as f:
+                #     try:
+                #         f.write(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}')
+                #     except Exception:
+                #         f.write(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}')
     f()
 except KeyboardInterrupt:
     pass

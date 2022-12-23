@@ -3,12 +3,12 @@
 /* BEGIN: Cython Metadata
 {
     "distutils": {
-        "name": "train",
+        "name": "def_train",
         "sources": [
-            "train.py"
+            "def_train.py"
         ]
     },
-    "module_name": "train"
+    "module_name": "def_train"
 }
 END: Cython Metadata */
 
@@ -750,8 +750,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__train
-#define __PYX_HAVE_API__train
+#define __PYX_HAVE__def_train
+#define __PYX_HAVE_API__def_train
 /* Early includes */
 #ifdef _OPENMP
 #include <omp.h>
@@ -962,7 +962,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "train.py",
+  "def_train.py",
 };
 
 /*--- Type declarations ---*/
@@ -1273,67 +1273,6 @@ static PyObject* __Pyx_PyFloat_DivideObjC(PyObject *op1, PyObject *op2, double f
     ((inplace ? __Pyx_PyNumber_InPlaceDivide(op1, op2) : __Pyx_PyNumber_Divide(op1, op2)))
     #endif
 
-/* PyObjectFormatSimple.proto */
-#if CYTHON_COMPILING_IN_PYPY
-    #define __Pyx_PyObject_FormatSimple(s, f) (\
-        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
-        PyObject_Format(s, f))
-#elif PY_MAJOR_VERSION < 3
-    #define __Pyx_PyObject_FormatSimple(s, f) (\
-        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
-        likely(PyString_CheckExact(s)) ? PyUnicode_FromEncodedObject(s, NULL, "strict") :\
-        PyObject_Format(s, f))
-#elif CYTHON_USE_TYPE_SLOTS
-    #define __Pyx_PyObject_FormatSimple(s, f) (\
-        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
-        likely(PyLong_CheckExact(s)) ? PyLong_Type.tp_str(s) :\
-        likely(PyFloat_CheckExact(s)) ? PyFloat_Type.tp_str(s) :\
-        PyObject_Format(s, f))
-#else
-    #define __Pyx_PyObject_FormatSimple(s, f) (\
-        likely(PyUnicode_CheckExact(s)) ? (Py_INCREF(s), s) :\
-        PyObject_Format(s, f))
-#endif
-
-/* IncludeStringH.proto */
-#include <string.h>
-
-/* JoinPyUnicode.proto */
-static PyObject* __Pyx_PyUnicode_Join(PyObject* value_tuple, Py_ssize_t value_count, Py_ssize_t result_ulength,
-                                      Py_UCS4 max_char);
-
-/* GetTopmostException.proto */
-#if CYTHON_USE_EXC_INFO_STACK
-static _PyErr_StackItem * __Pyx_PyErr_GetTopmostException(PyThreadState *tstate);
-#endif
-
-/* SaveResetException.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_ExceptionSave(type, value, tb)  __Pyx__ExceptionSave(__pyx_tstate, type, value, tb)
-static CYTHON_INLINE void __Pyx__ExceptionSave(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
-#define __Pyx_ExceptionReset(type, value, tb)  __Pyx__ExceptionReset(__pyx_tstate, type, value, tb)
-static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb);
-#else
-#define __Pyx_ExceptionSave(type, value, tb)   PyErr_GetExcInfo(type, value, tb)
-#define __Pyx_ExceptionReset(type, value, tb)  PyErr_SetExcInfo(type, value, tb)
-#endif
-
-/* PyErrExceptionMatches.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_PyErr_ExceptionMatches(err) __Pyx_PyErr_ExceptionMatchesInState(__pyx_tstate, err)
-static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err);
-#else
-#define __Pyx_PyErr_ExceptionMatches(err)  PyErr_ExceptionMatches(err)
-#endif
-
-/* GetException.proto */
-#if CYTHON_FAST_THREAD_STATE
-#define __Pyx_GetException(type, value, tb)  __Pyx__GetException(__pyx_tstate, type, value, tb)
-static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
-#else
-static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb);
-#endif
-
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
 
@@ -1403,6 +1342,30 @@ static PyObject *__Pyx_CyFunction_New(PyMethodDef *ml,
                                       PyObject *module, PyObject *globals,
                                       PyObject* code);
 
+/* GetTopmostException.proto */
+#if CYTHON_USE_EXC_INFO_STACK
+static _PyErr_StackItem * __Pyx_PyErr_GetTopmostException(PyThreadState *tstate);
+#endif
+
+/* SaveResetException.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_ExceptionSave(type, value, tb)  __Pyx__ExceptionSave(__pyx_tstate, type, value, tb)
+static CYTHON_INLINE void __Pyx__ExceptionSave(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
+#define __Pyx_ExceptionReset(type, value, tb)  __Pyx__ExceptionReset(__pyx_tstate, type, value, tb)
+static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb);
+#else
+#define __Pyx_ExceptionSave(type, value, tb)   PyErr_GetExcInfo(type, value, tb)
+#define __Pyx_ExceptionReset(type, value, tb)  PyErr_SetExcInfo(type, value, tb)
+#endif
+
+/* PyErrExceptionMatches.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_PyErr_ExceptionMatches(err) __Pyx_PyErr_ExceptionMatchesInState(__pyx_tstate, err)
+static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err);
+#else
+#define __Pyx_PyErr_ExceptionMatches(err)  PyErr_ExceptionMatches(err)
+#endif
+
 /* PyObjectLookupSpecial.proto */
 #if CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
 static CYTHON_INLINE PyObject* __Pyx_PyObject_LookupSpecial(PyObject* obj, PyObject* attr_name) {
@@ -1427,6 +1390,14 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_LookupSpecial(PyObject* obj, PyObj
 }
 #else
 #define __Pyx_PyObject_LookupSpecial(o,n) __Pyx_PyObject_GetAttrStr(o,n)
+#endif
+
+/* GetException.proto */
+#if CYTHON_FAST_THREAD_STATE
+#define __Pyx_GetException(type, value, tb)  __Pyx__GetException(__pyx_tstate, type, value, tb)
+static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb);
+#else
+static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb);
 #endif
 
 /* CLineInTraceback.proto */
@@ -1499,23 +1470,20 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 
-/* Module declarations from 'train' */
-#define __Pyx_MODULE_NAME "train"
-extern int __pyx_module_is_main_train;
-int __pyx_module_is_main_train = 0;
+/* Module declarations from 'def_train' */
+#define __Pyx_MODULE_NAME "def_train"
+extern int __pyx_module_is_main_def_train;
+int __pyx_module_is_main_def_train = 0;
 
-/* Implementation of 'train' */
+/* Implementation of 'def_train' */
 static PyObject *__pyx_builtin_KeyboardInterrupt;
 static PyObject *__pyx_builtin_open;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_max;
 static const char __pyx_k_[] = "****";
 static const char __pyx_k_3[] = "3";
-static const char __pyx_k_a[] = "a";
 static const char __pyx_k_f[] = "f";
 static const char __pyx_k_i[] = "i";
-static const char __pyx_k__2[] = "\n";
-static const char __pyx_k__3[] = "";
 static const char __pyx_k_et[] = "et";
 static const char __pyx_k_np[] = "np";
 static const char __pyx_k_os[] = "os";
@@ -1539,7 +1507,6 @@ static const char __pyx_k_open[] = "open";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_decay[] = "decay";
 static const char __pyx_k_enter[] = "__enter__";
-static const char __pyx_k_epoch[] = "epoch ";
 static const char __pyx_k_gamma[] = "gamma";
 static const char __pyx_k_index[] = "index";
 static const char __pyx_k_numpy[] = "numpy";
@@ -1548,7 +1515,6 @@ static const char __pyx_k_range[] = "range";
 static const char __pyx_k_reset[] = "reset";
 static const char __pyx_k_state[] = "state";
 static const char __pyx_k_steps[] = "steps";
-static const char __pyx_k_train[] = "train";
 static const char __pyx_k_action[] = "action";
 static const char __pyx_k_epochs[] = "epochs";
 static const char __pyx_k_import[] = "__import__";
@@ -1562,10 +1528,7 @@ static const char __pyx_k_epsilon[] = "epsilon";
 static const char __pyx_k_install[] = "install";
 static const char __pyx_k_refresh[] = "refresh";
 static const char __pyx_k_uniform[] = "uniform";
-static const char __pyx_k_accuracy[] = " - accuracy: ";
-static const char __pyx_k_logs_csv[] = "./logs.csv";
-static const char __pyx_k_train_py[] = "train.py";
-static const char __pyx_k_epsilon_2[] = " epsilon: ";
+static const char __pyx_k_def_train[] = "def_train";
 static const char __pyx_k_pyximport[] = "pyximport";
 static const char __pyx_k_total_pos[] = "total_pos";
 static const char __pyx_k_game_class[] = "game_class";
@@ -1573,37 +1536,32 @@ static const char __pyx_k_next_state[] = "next_state";
 static const char __pyx_k_randAction[] = "randAction";
 static const char __pyx_k_Environment[] = "Environment";
 static const char __pyx_k_random_food[] = "random_food";
+static const char __pyx_k_def_train_py[] = "def_train.py";
 static const char __pyx_k_qtable_pickle[] = "./qtable.pickle";
 static const char __pyx_k_KeyboardInterrupt[] = "KeyboardInterrupt";
 static const char __pyx_k_get_current_state[] = "get_current_state";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_TF_CPP_MIN_LOG_LEVEL[] = "TF_CPP_MIN_LOG_LEVEL";
-static const char __pyx_k_accuracy_UNAVAILABLE_epsilon[] = " - accuracy: UNAVAILABLE epsilon: ";
 static PyObject *__pyx_kp_s_;
 static PyObject *__pyx_kp_s_3;
 static PyObject *__pyx_n_s_Environment;
 static PyObject *__pyx_n_s_KeyboardInterrupt;
 static PyObject *__pyx_n_s_TF_CPP_MIN_LOG_LEVEL;
-static PyObject *__pyx_kp_s__2;
-static PyObject *__pyx_kp_s__3;
-static PyObject *__pyx_n_s_a;
-static PyObject *__pyx_kp_u_accuracy;
-static PyObject *__pyx_kp_u_accuracy_UNAVAILABLE_epsilon;
 static PyObject *__pyx_n_s_action;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_cube;
 static PyObject *__pyx_n_s_dead;
 static PyObject *__pyx_n_s_decay;
+static PyObject *__pyx_n_s_def_train;
+static PyObject *__pyx_kp_s_def_train_py;
 static PyObject *__pyx_n_s_done;
 static PyObject *__pyx_n_s_dump;
 static PyObject *__pyx_n_s_end;
 static PyObject *__pyx_n_s_enter;
 static PyObject *__pyx_n_s_env;
 static PyObject *__pyx_n_s_environ;
-static PyObject *__pyx_kp_u_epoch;
 static PyObject *__pyx_n_s_epochs;
 static PyObject *__pyx_n_s_epsilon;
-static PyObject *__pyx_kp_u_epsilon_2;
 static PyObject *__pyx_n_s_et;
 static PyObject *__pyx_n_s_exit;
 static PyObject *__pyx_n_s_f;
@@ -1617,7 +1575,6 @@ static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_index;
 static PyObject *__pyx_n_s_install;
-static PyObject *__pyx_kp_s_logs_csv;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_max;
 static PyObject *__pyx_n_s_move;
@@ -1645,29 +1602,25 @@ static PyObject *__pyx_n_s_steps;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_tot;
 static PyObject *__pyx_n_s_total_pos;
-static PyObject *__pyx_n_s_train;
-static PyObject *__pyx_kp_s_train_py;
 static PyObject *__pyx_n_s_uniform;
 static PyObject *__pyx_n_s_wb;
-static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9def_train_f(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_float_1_;
 static PyObject *__pyx_float__99;
 static PyObject *__pyx_float_0_01;
 static PyObject *__pyx_float_10e5;
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
-static PyObject *__pyx_int_100;
 static PyObject *__pyx_int_1000;
-static PyObject *__pyx_int_100000000000;
-static PyObject *__pyx_tuple__4;
+static PyObject *__pyx_int_100000000000000;
+static PyObject *__pyx_tuple__2;
+static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_tuple__5;
 static PyObject *__pyx_tuple__6;
-static PyObject *__pyx_tuple__8;
-static PyObject *__pyx_tuple__9;
-static PyObject *__pyx_codeobj__7;
+static PyObject *__pyx_codeobj__4;
 /* Late includes */
 
-/* "train.py":24
+/* "def_train.py":24
  * try:
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():             # <<<<<<<<<<<<<<
@@ -1676,21 +1629,21 @@ static PyObject *__pyx_codeobj__7;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_5train_1f(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_5train_1f = {"f", (PyCFunction)__pyx_pw_5train_1f, METH_NOARGS, 0};
-static PyObject *__pyx_pw_5train_1f(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9def_train_1f(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9def_train_1f = {"f", (PyCFunction)__pyx_pw_9def_train_1f, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9def_train_1f(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("f (wrapper)", 0);
-  __pyx_r = __pyx_pf_5train_f(__pyx_self);
+  __pyx_r = __pyx_pf_9def_train_f(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
-  PyObject *__pyx_v_i = NULL;
+static PyObject *__pyx_pf_9def_train_f(CYTHON_UNUSED PyObject *__pyx_self) {
+  CYTHON_UNUSED PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_v_state = NULL;
   PyObject *__pyx_v_reward = NULL;
   CYTHON_UNUSED PyObject *__pyx_v_dead = NULL;
@@ -1715,17 +1668,12 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
   int __pyx_t_12;
   PyObject *(*__pyx_t_13)(PyObject *);
   Py_ssize_t __pyx_t_14;
-  PyObject *__pyx_t_15 = NULL;
-  PyObject *__pyx_t_16 = NULL;
-  PyObject *__pyx_t_17 = NULL;
-  Py_UCS4 __pyx_t_18;
-  int __pyx_t_19;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("f", 0);
 
-  /* "train.py":26
+  /* "def_train.py":26
  *     def f():
  *         global qtable, epochs, done, gamma, epsilon, fast, env
  *         for i in range(epochs):             # <<<<<<<<<<<<<<
@@ -1780,7 +1728,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "train.py":27
+    /* "def_train.py":27
  *         global qtable, epochs, done, gamma, epsilon, fast, env
  *         for i in range(epochs):
  *             state, reward, dead, et = env.reset()             # <<<<<<<<<<<<<<
@@ -1875,7 +1823,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
     __Pyx_XDECREF_SET(__pyx_v_et, __pyx_t_8);
     __pyx_t_8 = 0;
 
-    /* "train.py":28
+    /* "def_train.py":28
  *         for i in range(epochs):
  *             state, reward, dead, et = env.reset()
  *             env.random_food()             # <<<<<<<<<<<<<<
@@ -1904,7 +1852,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "train.py":29
+    /* "def_train.py":29
  *             state, reward, dead, et = env.reset()
  *             env.random_food()
  *             state = env.get_current_state()             # <<<<<<<<<<<<<<
@@ -1934,7 +1882,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
     __Pyx_DECREF_SET(__pyx_v_state, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "train.py":30
+    /* "def_train.py":30
  *             env.random_food()
  *             state = env.get_current_state()
  *             steps = 0             # <<<<<<<<<<<<<<
@@ -1944,7 +1892,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
     __Pyx_INCREF(__pyx_int_0);
     __Pyx_XDECREF_SET(__pyx_v_steps, __pyx_int_0);
 
-    /* "train.py":31
+    /* "def_train.py":31
  *             state = env.get_current_state()
  *             steps = 0
  *             if not fast:tot = 0             # <<<<<<<<<<<<<<
@@ -1961,7 +1909,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_XDECREF_SET(__pyx_v_tot, __pyx_int_0);
     }
 
-    /* "train.py":32
+    /* "def_train.py":32
  *             steps = 0
  *             if not fast:tot = 0
  *             done = False             # <<<<<<<<<<<<<<
@@ -1970,7 +1918,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
  */
     if (PyDict_SetItem(__pyx_d, __pyx_n_s_done, Py_False) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
 
-    /* "train.py":33
+    /* "def_train.py":33
  *             if not fast:tot = 0
  *             done = False
  *             while not done:             # <<<<<<<<<<<<<<
@@ -1985,7 +1933,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __pyx_t_11 = ((!__pyx_t_12) != 0);
       if (!__pyx_t_11) break;
 
-      /* "train.py":34
+      /* "def_train.py":34
  *             done = False
  *             while not done:
  *                 steps += 1             # <<<<<<<<<<<<<<
@@ -1997,7 +1945,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF_SET(__pyx_v_steps, __pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "train.py":36
+      /* "def_train.py":36
  *                 steps += 1
  *                 # act randomly sometimes to allow exploration
  *                 if np.random.uniform() < epsilon:             # <<<<<<<<<<<<<<
@@ -2036,7 +1984,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       if (__pyx_t_11) {
 
-        /* "train.py":37
+        /* "def_train.py":37
  *                 # act randomly sometimes to allow exploration
  *                 if np.random.uniform() < epsilon:
  *                     action = env.randAction()             # <<<<<<<<<<<<<<
@@ -2066,7 +2014,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __Pyx_XDECREF_SET(__pyx_v_action, __pyx_t_7);
         __pyx_t_7 = 0;
 
-        /* "train.py":36
+        /* "def_train.py":36
  *                 steps += 1
  *                 # act randomly sometimes to allow exploration
  *                 if np.random.uniform() < epsilon:             # <<<<<<<<<<<<<<
@@ -2076,10 +2024,10 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         goto __pyx_L10;
       }
 
-      /* "train.py":40
+      /* "def_train.py":40
  *                 # if not select max action in Qtable (act greedy)
  *                 else:
- *                     if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]             # <<<<<<<<<<<<<<
+ *                     if not state in qtable:qtable[state] = [np.random.random() for i in '****']             # <<<<<<<<<<<<<<
  *                     action = qtable[state].index(max(qtable[state]))
  *                 next_state, reward, done, et = env.move(action)
  */
@@ -2144,9 +2092,9 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
 
-        /* "train.py":41
+        /* "def_train.py":41
  *                 else:
- *                     if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]
+ *                     if not state in qtable:qtable[state] = [np.random.random() for i in '****']
  *                     action = qtable[state].index(max(qtable[state]))             # <<<<<<<<<<<<<<
  *                 next_state, reward, done, et = env.move(action)
  * 
@@ -2188,8 +2136,8 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       }
       __pyx_L10:;
 
-      /* "train.py":42
- *                     if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]
+      /* "def_train.py":42
+ *                     if not state in qtable:qtable[state] = [np.random.random() for i in '****']
  *                     action = qtable[state].index(max(qtable[state]))
  *                 next_state, reward, done, et = env.move(action)             # <<<<<<<<<<<<<<
  * 
@@ -2283,7 +2231,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF_SET(__pyx_v_et, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "train.py":44
+      /* "def_train.py":44
  *                 next_state, reward, done, et = env.move(action)
  * 
  *                 if not fast:tot += reward             # <<<<<<<<<<<<<<
@@ -2303,7 +2251,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __pyx_t_7 = 0;
       }
 
-      /* "train.py":45
+      /* "def_train.py":45
  * 
  *                 if not fast:tot += reward
  *                 if reward > 0:             # <<<<<<<<<<<<<<
@@ -2315,7 +2263,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       if (__pyx_t_11) {
 
-        /* "train.py":46
+        /* "def_train.py":46
  *                 if not fast:tot += reward
  *                 if reward > 0:
  *                     steps = 0             # <<<<<<<<<<<<<<
@@ -2325,7 +2273,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __Pyx_INCREF(__pyx_int_0);
         __Pyx_DECREF_SET(__pyx_v_steps, __pyx_int_0);
 
-        /* "train.py":47
+        /* "def_train.py":47
  *                 if reward > 0:
  *                     steps = 0
  *                     env.random_food()             # <<<<<<<<<<<<<<
@@ -2354,7 +2302,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "train.py":45
+        /* "def_train.py":45
  * 
  *                 if not fast:tot += reward
  *                 if reward > 0:             # <<<<<<<<<<<<<<
@@ -2363,7 +2311,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
  */
       }
 
-      /* "train.py":48
+      /* "def_train.py":48
  *                     steps = 0
  *                     env.random_food()
  *                 if len(env.total_pos) >= env.cube*env.cube:  # if snake is too big we stop the program (it has gotten to the max length possible)             # <<<<<<<<<<<<<<
@@ -2400,7 +2348,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (unlikely(__pyx_t_11)) {
 
-        /* "train.py":49
+        /* "def_train.py":49
  *                     env.random_food()
  *                 if len(env.total_pos) >= env.cube*env.cube:  # if snake is too big we stop the program (it has gotten to the max length possible)
  *                     raise KeyboardInterrupt             # <<<<<<<<<<<<<<
@@ -2410,7 +2358,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __Pyx_Raise(__pyx_builtin_KeyboardInterrupt, 0, 0, 0);
         __PYX_ERR(0, 49, __pyx_L1_error)
 
-        /* "train.py":48
+        /* "def_train.py":48
  *                     steps = 0
  *                     env.random_food()
  *                 if len(env.total_pos) >= env.cube*env.cube:  # if snake is too big we stop the program (it has gotten to the max length possible)             # <<<<<<<<<<<<<<
@@ -2419,7 +2367,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
  */
       }
 
-      /* "train.py":50
+      /* "def_train.py":50
  *                 if len(env.total_pos) >= env.cube*env.cube:  # if snake is too big we stop the program (it has gotten to the max length possible)
  *                     raise KeyboardInterrupt
  *                 if steps > 1_000:  # if 1_000 steps have gone by and it has not eaten, reset             # <<<<<<<<<<<<<<
@@ -2431,7 +2379,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (__pyx_t_11) {
 
-        /* "train.py":51
+        /* "def_train.py":51
  *                     raise KeyboardInterrupt
  *                 if steps > 1_000:  # if 1_000 steps have gone by and it has not eaten, reset
  *                     done = True             # <<<<<<<<<<<<<<
@@ -2440,7 +2388,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
  */
         if (PyDict_SetItem(__pyx_d, __pyx_n_s_done, Py_True) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
 
-        /* "train.py":50
+        /* "def_train.py":50
  *                 if len(env.total_pos) >= env.cube*env.cube:  # if snake is too big we stop the program (it has gotten to the max length possible)
  *                     raise KeyboardInterrupt
  *                 if steps > 1_000:  # if 1_000 steps have gone by and it has not eaten, reset             # <<<<<<<<<<<<<<
@@ -2449,12 +2397,12 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
  */
       }
 
-      /* "train.py":52
+      /* "def_train.py":52
  *                 if steps > 1_000:  # if 1_000 steps have gone by and it has not eaten, reset
  *                     done = True
  *                 epsilon -= epsilon/10e5             # <<<<<<<<<<<<<<
  *                 # update qtable value with Bellman equation
- *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '*'*4]
+ *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '****']
  */
       __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_epsilon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
@@ -2470,11 +2418,11 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       if (PyDict_SetItem(__pyx_d, __pyx_n_s_epsilon, __pyx_t_7) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "train.py":54
+      /* "def_train.py":54
  *                 epsilon -= epsilon/10e5
  *                 # update qtable value with Bellman equation
- *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '*'*4]             # <<<<<<<<<<<<<<
- *                 if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]
+ *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '****']             # <<<<<<<<<<<<<<
+ *                 if not state in qtable:qtable[state] = [np.random.random() for i in '****']
  *                 qtable[state][action] = reward + (gamma * max(qtable[next_state]))
  */
       __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_qtable); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 54, __pyx_L1_error)
@@ -2537,10 +2485,10 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
 
-      /* "train.py":55
+      /* "def_train.py":55
  *                 # update qtable value with Bellman equation
- *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '*'*4]
- *                 if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]             # <<<<<<<<<<<<<<
+ *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '****']
+ *                 if not state in qtable:qtable[state] = [np.random.random() for i in '****']             # <<<<<<<<<<<<<<
  *                 qtable[state][action] = reward + (gamma * max(qtable[next_state]))
  *                 if not fast:env.refresh()
  */
@@ -2604,12 +2552,12 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
 
-      /* "train.py":56
- *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '*'*4]
- *                 if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]
+      /* "def_train.py":56
+ *                 if not next_state in qtable:qtable[next_state] = [np.random.random() for i in '****']
+ *                 if not state in qtable:qtable[state] = [np.random.random() for i in '****']
  *                 qtable[state][action] = reward + (gamma * max(qtable[next_state]))             # <<<<<<<<<<<<<<
  *                 if not fast:env.refresh()
- *                 state = next_state
+ * 
  */
       __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_gamma); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 56, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
@@ -2637,12 +2585,12 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "train.py":57
- *                 if not state in qtable:qtable[state] = [np.random.random() for i in '*'*4]
+      /* "def_train.py":57
+ *                 if not state in qtable:qtable[state] = [np.random.random() for i in '****']
  *                 qtable[state][action] = reward + (gamma * max(qtable[next_state]))
  *                 if not fast:env.refresh()             # <<<<<<<<<<<<<<
- *                 state = next_state
  * 
+ *                 state = next_state
  */
       __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_fast); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 57, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
@@ -2673,9 +2621,9 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
 
-      /* "train.py":58
- *                 qtable[state][action] = reward + (gamma * max(qtable[next_state]))
+      /* "def_train.py":59
  *                 if not fast:env.refresh()
+ * 
  *                 state = next_state             # <<<<<<<<<<<<<<
  * 
  *             # The more we learn, the less we take random actions
@@ -2684,266 +2632,31 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
       __Pyx_DECREF_SET(__pyx_v_state, __pyx_v_next_state);
     }
 
-    /* "train.py":61
+    /* "def_train.py":62
  * 
  *             # The more we learn, the less we take random actions
  *             epsilon -= epsilon * decay             # <<<<<<<<<<<<<<
- *             if not fast:  # log details
- *                 try:
+ *             # if not fast:  # log details
+ *                 # with open('./logs.csv', 'a') as f:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_epsilon); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_epsilon); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_epsilon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_epsilon); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_decay); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_decay); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_6 = PyNumber_Multiply(__pyx_t_2, __pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Multiply(__pyx_t_2, __pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = PyNumber_InPlaceSubtract(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_7 = PyNumber_InPlaceSubtract(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_epsilon, __pyx_t_7) < 0) __PYX_ERR(0, 61, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_epsilon, __pyx_t_7) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "train.py":62
- *             # The more we learn, the less we take random actions
- *             epsilon -= epsilon * decay
- *             if not fast:  # log details             # <<<<<<<<<<<<<<
- *                 try:
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- */
-    __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_fast); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 62, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 62, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_11 = ((!__pyx_t_12) != 0);
-    if (__pyx_t_11) {
-
-      /* "train.py":63
- *             epsilon -= epsilon * decay
- *             if not fast:  # log details
- *                 try:             # <<<<<<<<<<<<<<
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- *                 except Exception:
- */
-      {
-        __Pyx_PyThreadState_declare
-        __Pyx_PyThreadState_assign
-        __Pyx_ExceptionSave(&__pyx_t_15, &__pyx_t_16, &__pyx_t_17);
-        __Pyx_XGOTREF(__pyx_t_15);
-        __Pyx_XGOTREF(__pyx_t_16);
-        __Pyx_XGOTREF(__pyx_t_17);
-        /*try:*/ {
-
-          /* "train.py":64
- *             if not fast:  # log details
- *                 try:
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))             # <<<<<<<<<<<<<<
- *                 except Exception:
- *                     print(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- */
-          __pyx_t_7 = PyTuple_New(6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_14 = 0;
-          __pyx_t_18 = 127;
-          __Pyx_INCREF(__pyx_kp_u_epoch);
-          __pyx_t_14 += 6;
-          __Pyx_GIVEREF(__pyx_kp_u_epoch);
-          PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_kp_u_epoch);
-          __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_v_i, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_18 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_18) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_18;
-          __pyx_t_14 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
-          __Pyx_GIVEREF(__pyx_t_6);
-          PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_6);
-          __pyx_t_6 = 0;
-          __Pyx_INCREF(__pyx_kp_u_accuracy);
-          __pyx_t_14 += 13;
-          __Pyx_GIVEREF(__pyx_kp_u_accuracy);
-          PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_kp_u_accuracy);
-          if (unlikely(!__pyx_v_tot)) { __Pyx_RaiseUnboundLocalError("tot"); __PYX_ERR(0, 64, __pyx_L28_error) }
-          __pyx_t_6 = __Pyx_PyNumber_Divide(__pyx_v_steps, __pyx_v_tot); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_5 = PyNumber_Multiply(__pyx_t_6, __pyx_int_100); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_18 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_18) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_18;
-          __pyx_t_14 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
-          __Pyx_GIVEREF(__pyx_t_6);
-          PyTuple_SET_ITEM(__pyx_t_7, 3, __pyx_t_6);
-          __pyx_t_6 = 0;
-          __Pyx_INCREF(__pyx_kp_u_epsilon_2);
-          __pyx_t_14 += 10;
-          __Pyx_GIVEREF(__pyx_kp_u_epsilon_2);
-          PyTuple_SET_ITEM(__pyx_t_7, 4, __pyx_kp_u_epsilon_2);
-          __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_epsilon); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __pyx_t_18 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) > __pyx_t_18) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) : __pyx_t_18;
-          __pyx_t_14 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5);
-          __Pyx_GIVEREF(__pyx_t_5);
-          PyTuple_SET_ITEM(__pyx_t_7, 5, __pyx_t_5);
-          __pyx_t_5 = 0;
-          __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_7, 6, __pyx_t_14, __pyx_t_18); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __Pyx_GIVEREF(__pyx_t_5);
-          PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5);
-          __Pyx_INCREF(__pyx_kp_s__2);
-          __Pyx_GIVEREF(__pyx_kp_s__2);
-          PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_kp_s__2);
-          __Pyx_INCREF(__pyx_kp_s__3);
-          __Pyx_GIVEREF(__pyx_kp_s__3);
-          PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_kp_s__3);
-          __Pyx_GIVEREF(__pyx_t_7);
-          PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_7);
-          __pyx_t_5 = 0;
-          __pyx_t_7 = 0;
-          if (__Pyx_PrintOne(0, __pyx_t_6) < 0) __PYX_ERR(0, 64, __pyx_L28_error)
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-
-          /* "train.py":63
- *             epsilon -= epsilon * decay
- *             if not fast:  # log details
- *                 try:             # <<<<<<<<<<<<<<
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- *                 except Exception:
- */
-        }
-        __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
-        __Pyx_XDECREF(__pyx_t_16); __pyx_t_16 = 0;
-        __Pyx_XDECREF(__pyx_t_17); __pyx_t_17 = 0;
-        goto __pyx_L35_try_end;
-        __pyx_L28_error:;
-        __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-        __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-        __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-
-        /* "train.py":65
- *                 try:
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- *                 except Exception:             # <<<<<<<<<<<<<<
- *                     print(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- *     f()
- */
-        __pyx_t_19 = __Pyx_PyErr_ExceptionMatches(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
-        if (__pyx_t_19) {
-          __Pyx_AddTraceback("train.f", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_6, &__pyx_t_7, &__pyx_t_5) < 0) __PYX_ERR(0, 65, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          __Pyx_GOTREF(__pyx_t_7);
-          __Pyx_GOTREF(__pyx_t_5);
-
-          /* "train.py":66
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- *                 except Exception:
- *                     print(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))             # <<<<<<<<<<<<<<
- *     f()
- * except KeyboardInterrupt:
- */
-          __pyx_t_2 = PyTuple_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_14 = 0;
-          __pyx_t_18 = 127;
-          __Pyx_INCREF(__pyx_kp_u_epoch);
-          __pyx_t_14 += 6;
-          __Pyx_GIVEREF(__pyx_kp_u_epoch);
-          PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_epoch);
-          __pyx_t_8 = __Pyx_PyObject_FormatSimple(__pyx_v_i, __pyx_empty_unicode); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_18 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8) > __pyx_t_18) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_8) : __pyx_t_18;
-          __pyx_t_14 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_8);
-          __Pyx_GIVEREF(__pyx_t_8);
-          PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_8);
-          __pyx_t_8 = 0;
-          __Pyx_INCREF(__pyx_kp_u_accuracy_UNAVAILABLE_epsilon);
-          __pyx_t_14 += 34;
-          __Pyx_GIVEREF(__pyx_kp_u_accuracy_UNAVAILABLE_epsilon);
-          PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u_accuracy_UNAVAILABLE_epsilon);
-          __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_epsilon); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_8, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_9);
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __pyx_t_18 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) > __pyx_t_18) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) : __pyx_t_18;
-          __pyx_t_14 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_9);
-          __Pyx_GIVEREF(__pyx_t_9);
-          PyTuple_SET_ITEM(__pyx_t_2, 3, __pyx_t_9);
-          __pyx_t_9 = 0;
-          __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_2, 4, __pyx_t_14, __pyx_t_18); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_9);
-          __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_8 = PyTuple_New(4); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_GOTREF(__pyx_t_8);
-          __Pyx_GIVEREF(__pyx_t_9);
-          PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_9);
-          __Pyx_INCREF(__pyx_kp_s__2);
-          __Pyx_GIVEREF(__pyx_kp_s__2);
-          PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_kp_s__2);
-          __Pyx_INCREF(__pyx_kp_s__3);
-          __Pyx_GIVEREF(__pyx_kp_s__3);
-          PyTuple_SET_ITEM(__pyx_t_8, 2, __pyx_kp_s__3);
-          __Pyx_GIVEREF(__pyx_t_2);
-          PyTuple_SET_ITEM(__pyx_t_8, 3, __pyx_t_2);
-          __pyx_t_9 = 0;
-          __pyx_t_2 = 0;
-          if (__Pyx_PrintOne(0, __pyx_t_8) < 0) __PYX_ERR(0, 66, __pyx_L30_except_error)
-          __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-          __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-          goto __pyx_L29_exception_handled;
-        }
-        goto __pyx_L30_except_error;
-        __pyx_L30_except_error:;
-
-        /* "train.py":63
- *             epsilon -= epsilon * decay
- *             if not fast:  # log details
- *                 try:             # <<<<<<<<<<<<<<
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- *                 except Exception:
- */
-        __Pyx_XGIVEREF(__pyx_t_15);
-        __Pyx_XGIVEREF(__pyx_t_16);
-        __Pyx_XGIVEREF(__pyx_t_17);
-        __Pyx_ExceptionReset(__pyx_t_15, __pyx_t_16, __pyx_t_17);
-        goto __pyx_L1_error;
-        __pyx_L29_exception_handled:;
-        __Pyx_XGIVEREF(__pyx_t_15);
-        __Pyx_XGIVEREF(__pyx_t_16);
-        __Pyx_XGIVEREF(__pyx_t_17);
-        __Pyx_ExceptionReset(__pyx_t_15, __pyx_t_16, __pyx_t_17);
-        __pyx_L35_try_end:;
-      }
-
-      /* "train.py":62
- *             # The more we learn, the less we take random actions
- *             epsilon -= epsilon * decay
- *             if not fast:  # log details             # <<<<<<<<<<<<<<
- *                 try:
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- */
-    }
-
-    /* "train.py":26
+    /* "def_train.py":26
  *     def f():
  *         global qtable, epochs, done, gamma, epsilon, fast, env
  *         for i in range(epochs):             # <<<<<<<<<<<<<<
@@ -2953,7 +2666,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":24
+  /* "def_train.py":24
  * try:
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():             # <<<<<<<<<<<<<<
@@ -2972,7 +2685,7 @@ static PyObject *__pyx_pf_5train_f(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("train.f", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("def_train.f", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_i);
@@ -2996,17 +2709,17 @@ static PyMethodDef __pyx_methods[] = {
 #if PY_MAJOR_VERSION >= 3
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 static PyObject* __pyx_pymod_create(PyObject *spec, PyModuleDef *def); /*proto*/
-static int __pyx_pymod_exec_train(PyObject* module); /*proto*/
+static int __pyx_pymod_exec_def_train(PyObject* module); /*proto*/
 static PyModuleDef_Slot __pyx_moduledef_slots[] = {
   {Py_mod_create, (void*)__pyx_pymod_create},
-  {Py_mod_exec, (void*)__pyx_pymod_exec_train},
+  {Py_mod_exec, (void*)__pyx_pymod_exec_def_train},
   {0, NULL}
 };
 #endif
 
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
-    "train",
+    "def_train",
     0, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
@@ -3040,26 +2753,21 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Environment, __pyx_k_Environment, sizeof(__pyx_k_Environment), 0, 0, 1, 1},
   {&__pyx_n_s_KeyboardInterrupt, __pyx_k_KeyboardInterrupt, sizeof(__pyx_k_KeyboardInterrupt), 0, 0, 1, 1},
   {&__pyx_n_s_TF_CPP_MIN_LOG_LEVEL, __pyx_k_TF_CPP_MIN_LOG_LEVEL, sizeof(__pyx_k_TF_CPP_MIN_LOG_LEVEL), 0, 0, 1, 1},
-  {&__pyx_kp_s__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 0, 1, 0},
-  {&__pyx_kp_s__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 0, 1, 0},
-  {&__pyx_n_s_a, __pyx_k_a, sizeof(__pyx_k_a), 0, 0, 1, 1},
-  {&__pyx_kp_u_accuracy, __pyx_k_accuracy, sizeof(__pyx_k_accuracy), 0, 1, 0, 0},
-  {&__pyx_kp_u_accuracy_UNAVAILABLE_epsilon, __pyx_k_accuracy_UNAVAILABLE_epsilon, sizeof(__pyx_k_accuracy_UNAVAILABLE_epsilon), 0, 1, 0, 0},
   {&__pyx_n_s_action, __pyx_k_action, sizeof(__pyx_k_action), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_cube, __pyx_k_cube, sizeof(__pyx_k_cube), 0, 0, 1, 1},
   {&__pyx_n_s_dead, __pyx_k_dead, sizeof(__pyx_k_dead), 0, 0, 1, 1},
   {&__pyx_n_s_decay, __pyx_k_decay, sizeof(__pyx_k_decay), 0, 0, 1, 1},
+  {&__pyx_n_s_def_train, __pyx_k_def_train, sizeof(__pyx_k_def_train), 0, 0, 1, 1},
+  {&__pyx_kp_s_def_train_py, __pyx_k_def_train_py, sizeof(__pyx_k_def_train_py), 0, 0, 1, 0},
   {&__pyx_n_s_done, __pyx_k_done, sizeof(__pyx_k_done), 0, 0, 1, 1},
   {&__pyx_n_s_dump, __pyx_k_dump, sizeof(__pyx_k_dump), 0, 0, 1, 1},
   {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
   {&__pyx_n_s_enter, __pyx_k_enter, sizeof(__pyx_k_enter), 0, 0, 1, 1},
   {&__pyx_n_s_env, __pyx_k_env, sizeof(__pyx_k_env), 0, 0, 1, 1},
   {&__pyx_n_s_environ, __pyx_k_environ, sizeof(__pyx_k_environ), 0, 0, 1, 1},
-  {&__pyx_kp_u_epoch, __pyx_k_epoch, sizeof(__pyx_k_epoch), 0, 1, 0, 0},
   {&__pyx_n_s_epochs, __pyx_k_epochs, sizeof(__pyx_k_epochs), 0, 0, 1, 1},
   {&__pyx_n_s_epsilon, __pyx_k_epsilon, sizeof(__pyx_k_epsilon), 0, 0, 1, 1},
-  {&__pyx_kp_u_epsilon_2, __pyx_k_epsilon_2, sizeof(__pyx_k_epsilon_2), 0, 1, 0, 0},
   {&__pyx_n_s_et, __pyx_k_et, sizeof(__pyx_k_et), 0, 0, 1, 1},
   {&__pyx_n_s_exit, __pyx_k_exit, sizeof(__pyx_k_exit), 0, 0, 1, 1},
   {&__pyx_n_s_f, __pyx_k_f, sizeof(__pyx_k_f), 0, 0, 1, 1},
@@ -3073,7 +2781,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_index, __pyx_k_index, sizeof(__pyx_k_index), 0, 0, 1, 1},
   {&__pyx_n_s_install, __pyx_k_install, sizeof(__pyx_k_install), 0, 0, 1, 1},
-  {&__pyx_kp_s_logs_csv, __pyx_k_logs_csv, sizeof(__pyx_k_logs_csv), 0, 0, 1, 0},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_max, __pyx_k_max, sizeof(__pyx_k_max), 0, 0, 1, 1},
   {&__pyx_n_s_move, __pyx_k_move, sizeof(__pyx_k_move), 0, 0, 1, 1},
@@ -3101,15 +2808,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_tot, __pyx_k_tot, sizeof(__pyx_k_tot), 0, 0, 1, 1},
   {&__pyx_n_s_total_pos, __pyx_k_total_pos, sizeof(__pyx_k_total_pos), 0, 0, 1, 1},
-  {&__pyx_n_s_train, __pyx_k_train, sizeof(__pyx_k_train), 0, 0, 1, 1},
-  {&__pyx_kp_s_train_py, __pyx_k_train_py, sizeof(__pyx_k_train_py), 0, 0, 1, 0},
   {&__pyx_n_s_uniform, __pyx_k_uniform, sizeof(__pyx_k_uniform), 0, 0, 1, 1},
   {&__pyx_n_s_wb, __pyx_k_wb, sizeof(__pyx_k_wb), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_KeyboardInterrupt = __Pyx_GetBuiltinName(__pyx_n_s_KeyboardInterrupt); if (!__pyx_builtin_KeyboardInterrupt) __PYX_ERR(0, 68, __pyx_L1_error)
-  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_builtin_KeyboardInterrupt = __Pyx_GetBuiltinName(__pyx_n_s_KeyboardInterrupt); if (!__pyx_builtin_KeyboardInterrupt) __PYX_ERR(0, 70, __pyx_L1_error)
+  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 73, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 26, __pyx_L1_error)
   __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_n_s_max); if (!__pyx_builtin_max) __PYX_ERR(0, 41, __pyx_L1_error)
   return 0;
@@ -3121,51 +2826,40 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "train.py":64
- *             if not fast:  # log details
- *                 try:
- *                     print(f'epoch {i} - accuracy: {(steps/tot)*100} epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))             # <<<<<<<<<<<<<<
- *                 except Exception:
- *                     print(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
- */
-  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_kp_s_logs_csv, __pyx_n_s_a); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 64, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__4);
-  __Pyx_GIVEREF(__pyx_tuple__4);
-
-  /* "train.py":7
+  /* "def_train.py":7
  * import pickle
  * import pyximport
  * pyximport.install(True, True,)             # <<<<<<<<<<<<<<
  * 
  * # from tensorflow import function
  */
-  __pyx_tuple__5 = PyTuple_Pack(2, Py_True, Py_True); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__5);
-  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_tuple__2 = PyTuple_Pack(2, Py_True, Py_True); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__2);
+  __Pyx_GIVEREF(__pyx_tuple__2);
 
-  /* "train.py":24
+  /* "def_train.py":24
  * try:
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():             # <<<<<<<<<<<<<<
  *         global qtable, epochs, done, gamma, epsilon, fast, env
  *         for i in range(epochs):
  */
-  __pyx_tuple__6 = PyTuple_Pack(9, __pyx_n_s_i, __pyx_n_s_state, __pyx_n_s_reward, __pyx_n_s_dead, __pyx_n_s_et, __pyx_n_s_steps, __pyx_n_s_tot, __pyx_n_s_action, __pyx_n_s_next_state); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 24, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__6);
-  __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_train_py, __pyx_n_s_f, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(9, __pyx_n_s_i, __pyx_n_s_state, __pyx_n_s_reward, __pyx_n_s_dead, __pyx_n_s_et, __pyx_n_s_steps, __pyx_n_s_tot, __pyx_n_s_action, __pyx_n_s_next_state); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_def_train_py, __pyx_n_s_f, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "train.py":71
+  /* "def_train.py":73
  *     pass
  * print('saving')
  * with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)             # <<<<<<<<<<<<<<
  */
-  __pyx_tuple__8 = PyTuple_Pack(2, __pyx_kp_s_qtable_pickle, __pyx_n_s_wb); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 71, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__8);
-  __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_tuple__9 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 71, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__9);
-  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_kp_s_qtable_pickle, __pyx_n_s_wb); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__5);
+  __Pyx_GIVEREF(__pyx_tuple__5);
+  __pyx_tuple__6 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -3181,9 +2875,8 @@ static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   __pyx_float_10e5 = PyFloat_FromDouble(10e5); if (unlikely(!__pyx_float_10e5)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_100 = PyInt_FromLong(100); if (unlikely(!__pyx_int_100)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1000 = PyInt_FromLong(1000); if (unlikely(!__pyx_int_1000)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_100000000000 = PyInt_FromString((char *)"100000000000", 0, 0); if (unlikely(!__pyx_int_100000000000)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_100000000000000 = PyInt_FromString((char *)"100000000000000", 0, 0); if (unlikely(!__pyx_int_100000000000000)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3272,11 +2965,11 @@ static int __Pyx_modinit_function_import_code(void) {
 
 
 #if PY_MAJOR_VERSION < 3
-__Pyx_PyMODINIT_FUNC inittrain(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC inittrain(void)
+__Pyx_PyMODINIT_FUNC initdef_train(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC initdef_train(void)
 #else
-__Pyx_PyMODINIT_FUNC PyInit_train(void) CYTHON_SMALL_CODE; /*proto*/
-__Pyx_PyMODINIT_FUNC PyInit_train(void)
+__Pyx_PyMODINIT_FUNC PyInit_def_train(void) CYTHON_SMALL_CODE; /*proto*/
+__Pyx_PyMODINIT_FUNC PyInit_def_train(void)
 #if CYTHON_PEP489_MULTI_PHASE_INIT
 {
   return PyModuleDef_Init(&__pyx_moduledef);
@@ -3343,7 +3036,7 @@ bad:
 }
 
 
-static CYTHON_SMALL_CODE int __pyx_pymod_exec_train(PyObject *__pyx_pyinit_module)
+static CYTHON_SMALL_CODE int __pyx_pymod_exec_def_train(PyObject *__pyx_pyinit_module)
 #endif
 #endif
 {
@@ -3366,7 +3059,7 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_train(PyObject *__pyx_pyinit_modul
   #if CYTHON_PEP489_MULTI_PHASE_INIT
   if (__pyx_m) {
     if (__pyx_m == __pyx_pyinit_module) return 0;
-    PyErr_SetString(PyExc_RuntimeError, "Module 'train' has already been imported. Re-initialisation is not supported.");
+    PyErr_SetString(PyExc_RuntimeError, "Module 'def_train' has already been imported. Re-initialisation is not supported.");
     return -1;
   }
   #elif PY_MAJOR_VERSION >= 3
@@ -3381,7 +3074,7 @@ if (!__Pyx_RefNanny) {
       Py_FatalError("failed to import 'refnanny' module");
 }
 #endif
-  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_train(void)", 0);
+  __Pyx_RefNannySetupContext("__Pyx_PyMODINIT_FUNC PyInit_def_train(void)", 0);
   if (__Pyx_check_binary_version() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #ifdef __Pxy_PyFrame_Initialize_Offsets
   __Pxy_PyFrame_Initialize_Offsets();
@@ -3418,7 +3111,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("train", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("def_train", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -3436,14 +3129,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_train) {
+  if (__pyx_module_is_main_def_train) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "train")) {
-      if (unlikely(PyDict_SetItemString(modules, "train", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "def_train")) {
+      if (unlikely(PyDict_SetItemString(modules, "def_train", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -3464,7 +3157,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "train.py":1
+  /* "def_train.py":1
  * import os             # <<<<<<<<<<<<<<
  * os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
  * from game_class import Environment
@@ -3474,7 +3167,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":2
+  /* "def_train.py":2
  * import os
  * os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'             # <<<<<<<<<<<<<<
  * from game_class import Environment
@@ -3488,7 +3181,7 @@ if (!__Pyx_RefNanny) {
   if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_n_s_TF_CPP_MIN_LOG_LEVEL, __pyx_kp_s_3) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "train.py":3
+  /* "def_train.py":3
  * import os
  * os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
  * from game_class import Environment             # <<<<<<<<<<<<<<
@@ -3509,7 +3202,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":4
+  /* "def_train.py":4
  * os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
  * from game_class import Environment
  * import numpy as np             # <<<<<<<<<<<<<<
@@ -3521,7 +3214,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":5
+  /* "def_train.py":5
  * from game_class import Environment
  * import numpy as np
  * import pickle             # <<<<<<<<<<<<<<
@@ -3533,7 +3226,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pickle, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":6
+  /* "def_train.py":6
  * import numpy as np
  * import pickle
  * import pyximport             # <<<<<<<<<<<<<<
@@ -3545,7 +3238,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyximport, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":7
+  /* "def_train.py":7
  * import pickle
  * import pyximport
  * pyximport.install(True, True,)             # <<<<<<<<<<<<<<
@@ -3557,40 +3250,40 @@ if (!__Pyx_RefNanny) {
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_install); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":12
+  /* "def_train.py":12
  * # if you want this to run a bit faster, uncomment this import
  * 
  * done = False             # <<<<<<<<<<<<<<
- * epochs = 100_000_000_000  # games played
+ * epochs = 100_000_000_000_000  # games played
  * gamma = .99  # gamma is probably too high
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_done, Py_False) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "train.py":13
+  /* "def_train.py":13
  * 
  * done = False
- * epochs = 100_000_000_000  # games played             # <<<<<<<<<<<<<<
+ * epochs = 100_000_000_000_000  # games played             # <<<<<<<<<<<<<<
  * gamma = .99  # gamma is probably too high
  * epsilon = 1.  # same for epsilon
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_epochs, __pyx_int_100000000000) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_epochs, __pyx_int_100000000000000) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
 
-  /* "train.py":14
+  /* "def_train.py":14
  * done = False
- * epochs = 100_000_000_000  # games played
+ * epochs = 100_000_000_000_000  # games played
  * gamma = .99  # gamma is probably too high             # <<<<<<<<<<<<<<
  * epsilon = 1.  # same for epsilon
  * decay = 0.01  # decay is alright
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_gamma, __pyx_float__99) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
 
-  /* "train.py":15
- * epochs = 100_000_000_000  # games played
+  /* "def_train.py":15
+ * epochs = 100_000_000_000_000  # games played
  * gamma = .99  # gamma is probably too high
  * epsilon = 1.  # same for epsilon             # <<<<<<<<<<<<<<
  * decay = 0.01  # decay is alright
@@ -3598,7 +3291,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_epsilon, __pyx_float_1_) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
 
-  /* "train.py":16
+  /* "def_train.py":16
  * gamma = .99  # gamma is probably too high
  * epsilon = 1.  # same for epsilon
  * decay = 0.01  # decay is alright             # <<<<<<<<<<<<<<
@@ -3607,7 +3300,7 @@ if (!__Pyx_RefNanny) {
  */
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_decay, __pyx_float_0_01) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
 
-  /* "train.py":17
+  /* "def_train.py":17
  * epsilon = 1.  # same for epsilon
  * decay = 0.01  # decay is alright
  * qtable: dict[tuple, list] = Environment.gen()  # load a qtable             # <<<<<<<<<<<<<<
@@ -3625,12 +3318,12 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_qtable, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "train.py":19
+  /* "def_train.py":19
  * qtable: dict[tuple, list] = Environment.gen()  # load a qtable
  * 
  * env = Environment()  # start the environment             # <<<<<<<<<<<<<<
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Environment); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -3640,11 +3333,11 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_env, __pyx_t_2) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "train.py":20
+  /* "def_train.py":20
  * 
  * env = Environment()  # start the environment
  * env.reset()  # reset the environment             # <<<<<<<<<<<<<<
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_env); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
@@ -3657,18 +3350,18 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "train.py":21
+  /* "def_train.py":21
  * env = Environment()  # start the environment
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time             # <<<<<<<<<<<<<<
+ * fast = False  # cut down on train time             # <<<<<<<<<<<<<<
  * try:
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fast, Py_True) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fast, Py_False) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
 
-  /* "train.py":22
+  /* "def_train.py":22
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:             # <<<<<<<<<<<<<<
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():
@@ -3682,35 +3375,35 @@ if (!__Pyx_RefNanny) {
     __Pyx_XGOTREF(__pyx_t_5);
     /*try:*/ {
 
-      /* "train.py":24
+      /* "def_train.py":24
  * try:
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():             # <<<<<<<<<<<<<<
  *         global qtable, epochs, done, gamma, epsilon, fast, env
  *         for i in range(epochs):
  */
-      __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5train_1f, 0, __pyx_n_s_f, NULL, __pyx_n_s_train, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L2_error)
+      __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9def_train_1f, 0, __pyx_n_s_f, NULL, __pyx_n_s_def_train, __pyx_d, ((PyObject *)__pyx_codeobj__4)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L2_error)
       __Pyx_GOTREF(__pyx_t_2);
       if (PyDict_SetItem(__pyx_d, __pyx_n_s_f, __pyx_t_2) < 0) __PYX_ERR(0, 24, __pyx_L2_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "train.py":67
- *                 except Exception:
- *                     print(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
+      /* "def_train.py":69
+ *                 #     except Exception:
+ *                 #         f.write(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}')
  *     f()             # <<<<<<<<<<<<<<
  * except KeyboardInterrupt:
  *     pass
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_f); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L2_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_f); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L2_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 67, __pyx_L2_error)
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L2_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "train.py":22
+      /* "def_train.py":22
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:             # <<<<<<<<<<<<<<
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():
@@ -3724,8 +3417,8 @@ if (!__Pyx_RefNanny) {
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "train.py":68
- *                     print(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}', '\n', '', open('./logs.csv', 'a'))
+    /* "def_train.py":70
+ *                 #         f.write(f'epoch {i} - accuracy: UNAVAILABLE epsilon: {epsilon}')
  *     f()
  * except KeyboardInterrupt:             # <<<<<<<<<<<<<<
  *     pass
@@ -3739,9 +3432,9 @@ if (!__Pyx_RefNanny) {
     goto __pyx_L4_except_error;
     __pyx_L4_except_error:;
 
-    /* "train.py":22
+    /* "def_train.py":22
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:             # <<<<<<<<<<<<<<
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():
@@ -3759,27 +3452,27 @@ if (!__Pyx_RefNanny) {
     __pyx_L7_try_end:;
   }
 
-  /* "train.py":70
+  /* "def_train.py":72
  * except KeyboardInterrupt:
  *     pass
  * print('saving')             # <<<<<<<<<<<<<<
  * with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)
  */
-  if (__Pyx_PrintOne(0, __pyx_n_s_saving) < 0) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (__Pyx_PrintOne(0, __pyx_n_s_saving) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
 
-  /* "train.py":71
+  /* "def_train.py":73
  *     pass
  * print('saving')
  * with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)             # <<<<<<<<<<<<<<
  */
   /*with:*/ {
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 71, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_exit); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 73, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L8_error)
+    __pyx_t_2 = __Pyx_PyObject_LookupSpecial(__pyx_t_1, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L8_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L8_error)
+    __pyx_t_7 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 73, __pyx_L8_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = __pyx_t_7;
@@ -3794,18 +3487,18 @@ if (!__Pyx_RefNanny) {
         __Pyx_XGOTREF(__pyx_t_3);
         __Pyx_XGOTREF(__pyx_t_8);
         /*try:*/ {
-          if (PyDict_SetItem(__pyx_d, __pyx_n_s_f, __pyx_t_2) < 0) __PYX_ERR(0, 71, __pyx_L12_error)
+          if (PyDict_SetItem(__pyx_d, __pyx_n_s_f, __pyx_t_2) < 0) __PYX_ERR(0, 73, __pyx_L12_error)
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pickle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L12_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pickle); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_dump); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L12_error)
+          __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_dump); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_qtable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L12_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_qtable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
-          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_f); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L12_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_f); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 73, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 71, __pyx_L12_error)
+          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_GIVEREF(__pyx_t_2);
           PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_2);
@@ -3813,7 +3506,7 @@ if (!__Pyx_RefNanny) {
           PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_7);
           __pyx_t_2 = 0;
           __pyx_t_7 = 0;
-          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L12_error)
+          __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 73, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -3829,21 +3522,21 @@ if (!__Pyx_RefNanny) {
         __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
         /*except:*/ {
-          __Pyx_AddTraceback("train", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_9, &__pyx_t_1) < 0) __PYX_ERR(0, 71, __pyx_L14_except_error)
+          __Pyx_AddTraceback("def_train", __pyx_clineno, __pyx_lineno, __pyx_filename);
+          if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_9, &__pyx_t_1) < 0) __PYX_ERR(0, 73, __pyx_L14_except_error)
           __Pyx_GOTREF(__pyx_t_7);
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_2 = PyTuple_Pack(3, __pyx_t_7, __pyx_t_9, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L14_except_error)
+          __pyx_t_2 = PyTuple_Pack(3, __pyx_t_7, __pyx_t_9, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L14_except_error)
           __Pyx_GOTREF(__pyx_t_2);
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_2, NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 71, __pyx_L14_except_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 73, __pyx_L14_except_error)
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (__pyx_t_11 < 0) __PYX_ERR(0, 71, __pyx_L14_except_error)
+          if (__pyx_t_11 < 0) __PYX_ERR(0, 73, __pyx_L14_except_error)
           __pyx_t_12 = ((!(__pyx_t_11 != 0)) != 0);
           if (__pyx_t_12) {
             __Pyx_GIVEREF(__pyx_t_7);
@@ -3851,7 +3544,7 @@ if (!__Pyx_RefNanny) {
             __Pyx_XGIVEREF(__pyx_t_1);
             __Pyx_ErrRestoreWithState(__pyx_t_7, __pyx_t_9, __pyx_t_1);
             __pyx_t_7 = 0; __pyx_t_9 = 0; __pyx_t_1 = 0; 
-            __PYX_ERR(0, 71, __pyx_L14_except_error)
+            __PYX_ERR(0, 73, __pyx_L14_except_error)
           }
           __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -3875,9 +3568,9 @@ if (!__Pyx_RefNanny) {
     /*finally:*/ {
       /*normal exit:*/{
         if (__pyx_t_5) {
-          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__9, NULL);
+          __pyx_t_8 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__6, NULL);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 71, __pyx_L1_error)
+          if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 73, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
@@ -3892,7 +3585,7 @@ if (!__Pyx_RefNanny) {
     __pyx_L21:;
   }
 
-  /* "train.py":1
+  /* "def_train.py":1
  * import os             # <<<<<<<<<<<<<<
  * os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
  * from game_class import Environment
@@ -3912,11 +3605,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_9);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init train", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init def_train", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init train");
+    PyErr_SetString(PyExc_ImportError, "init def_train");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -4874,223 +4567,6 @@ static PyObject* __Pyx_PyFloat_DivideObjC(PyObject *op1, PyObject *op2, double f
 }
 #endif
 
-/* JoinPyUnicode */
-  static PyObject* __Pyx_PyUnicode_Join(PyObject* value_tuple, Py_ssize_t value_count, Py_ssize_t result_ulength,
-                                      CYTHON_UNUSED Py_UCS4 max_char) {
-#if CYTHON_USE_UNICODE_INTERNALS && CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    PyObject *result_uval;
-    int result_ukind;
-    Py_ssize_t i, char_pos;
-    void *result_udata;
-#if CYTHON_PEP393_ENABLED
-    result_uval = PyUnicode_New(result_ulength, max_char);
-    if (unlikely(!result_uval)) return NULL;
-    result_ukind = (max_char <= 255) ? PyUnicode_1BYTE_KIND : (max_char <= 65535) ? PyUnicode_2BYTE_KIND : PyUnicode_4BYTE_KIND;
-    result_udata = PyUnicode_DATA(result_uval);
-#else
-    result_uval = PyUnicode_FromUnicode(NULL, result_ulength);
-    if (unlikely(!result_uval)) return NULL;
-    result_ukind = sizeof(Py_UNICODE);
-    result_udata = PyUnicode_AS_UNICODE(result_uval);
-#endif
-    char_pos = 0;
-    for (i=0; i < value_count; i++) {
-        int ukind;
-        Py_ssize_t ulength;
-        void *udata;
-        PyObject *uval = PyTuple_GET_ITEM(value_tuple, i);
-        if (unlikely(__Pyx_PyUnicode_READY(uval)))
-            goto bad;
-        ulength = __Pyx_PyUnicode_GET_LENGTH(uval);
-        if (unlikely(!ulength))
-            continue;
-        if (unlikely(char_pos + ulength < 0))
-            goto overflow;
-        ukind = __Pyx_PyUnicode_KIND(uval);
-        udata = __Pyx_PyUnicode_DATA(uval);
-        if (!CYTHON_PEP393_ENABLED || ukind == result_ukind) {
-            memcpy((char *)result_udata + char_pos * result_ukind, udata, (size_t) (ulength * result_ukind));
-        } else {
-            #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030300F0 || defined(_PyUnicode_FastCopyCharacters)
-            _PyUnicode_FastCopyCharacters(result_uval, char_pos, uval, 0, ulength);
-            #else
-            Py_ssize_t j;
-            for (j=0; j < ulength; j++) {
-                Py_UCS4 uchar = __Pyx_PyUnicode_READ(ukind, udata, j);
-                __Pyx_PyUnicode_WRITE(result_ukind, result_udata, char_pos+j, uchar);
-            }
-            #endif
-        }
-        char_pos += ulength;
-    }
-    return result_uval;
-overflow:
-    PyErr_SetString(PyExc_OverflowError, "join() result is too long for a Python string");
-bad:
-    Py_DECREF(result_uval);
-    return NULL;
-#else
-    result_ulength++;
-    value_count++;
-    return PyUnicode_Join(__pyx_empty_unicode, value_tuple);
-#endif
-}
-
-/* GetTopmostException */
-  #if CYTHON_USE_EXC_INFO_STACK
-static _PyErr_StackItem *
-__Pyx_PyErr_GetTopmostException(PyThreadState *tstate)
-{
-    _PyErr_StackItem *exc_info = tstate->exc_info;
-    while ((exc_info->exc_type == NULL || exc_info->exc_type == Py_None) &&
-           exc_info->previous_item != NULL)
-    {
-        exc_info = exc_info->previous_item;
-    }
-    return exc_info;
-}
-#endif
-
-/* SaveResetException */
-  #if CYTHON_FAST_THREAD_STATE
-static CYTHON_INLINE void __Pyx__ExceptionSave(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
-    #if CYTHON_USE_EXC_INFO_STACK
-    _PyErr_StackItem *exc_info = __Pyx_PyErr_GetTopmostException(tstate);
-    *type = exc_info->exc_type;
-    *value = exc_info->exc_value;
-    *tb = exc_info->exc_traceback;
-    #else
-    *type = tstate->exc_type;
-    *value = tstate->exc_value;
-    *tb = tstate->exc_traceback;
-    #endif
-    Py_XINCREF(*type);
-    Py_XINCREF(*value);
-    Py_XINCREF(*tb);
-}
-static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    #if CYTHON_USE_EXC_INFO_STACK
-    _PyErr_StackItem *exc_info = tstate->exc_info;
-    tmp_type = exc_info->exc_type;
-    tmp_value = exc_info->exc_value;
-    tmp_tb = exc_info->exc_traceback;
-    exc_info->exc_type = type;
-    exc_info->exc_value = value;
-    exc_info->exc_traceback = tb;
-    #else
-    tmp_type = tstate->exc_type;
-    tmp_value = tstate->exc_value;
-    tmp_tb = tstate->exc_traceback;
-    tstate->exc_type = type;
-    tstate->exc_value = value;
-    tstate->exc_traceback = tb;
-    #endif
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-}
-#endif
-
-/* PyErrExceptionMatches */
-  #if CYTHON_FAST_THREAD_STATE
-static int __Pyx_PyErr_ExceptionMatchesTuple(PyObject *exc_type, PyObject *tuple) {
-    Py_ssize_t i, n;
-    n = PyTuple_GET_SIZE(tuple);
-#if PY_MAJOR_VERSION >= 3
-    for (i=0; i<n; i++) {
-        if (exc_type == PyTuple_GET_ITEM(tuple, i)) return 1;
-    }
-#endif
-    for (i=0; i<n; i++) {
-        if (__Pyx_PyErr_GivenExceptionMatches(exc_type, PyTuple_GET_ITEM(tuple, i))) return 1;
-    }
-    return 0;
-}
-static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err) {
-    PyObject *exc_type = tstate->curexc_type;
-    if (exc_type == err) return 1;
-    if (unlikely(!exc_type)) return 0;
-    if (unlikely(PyTuple_Check(err)))
-        return __Pyx_PyErr_ExceptionMatchesTuple(exc_type, err);
-    return __Pyx_PyErr_GivenExceptionMatches(exc_type, err);
-}
-#endif
-
-/* GetException */
-  #if CYTHON_FAST_THREAD_STATE
-static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb)
-#else
-static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb)
-#endif
-{
-    PyObject *local_type, *local_value, *local_tb;
-#if CYTHON_FAST_THREAD_STATE
-    PyObject *tmp_type, *tmp_value, *tmp_tb;
-    local_type = tstate->curexc_type;
-    local_value = tstate->curexc_value;
-    local_tb = tstate->curexc_traceback;
-    tstate->curexc_type = 0;
-    tstate->curexc_value = 0;
-    tstate->curexc_traceback = 0;
-#else
-    PyErr_Fetch(&local_type, &local_value, &local_tb);
-#endif
-    PyErr_NormalizeException(&local_type, &local_value, &local_tb);
-#if CYTHON_FAST_THREAD_STATE
-    if (unlikely(tstate->curexc_type))
-#else
-    if (unlikely(PyErr_Occurred()))
-#endif
-        goto bad;
-    #if PY_MAJOR_VERSION >= 3
-    if (local_tb) {
-        if (unlikely(PyException_SetTraceback(local_value, local_tb) < 0))
-            goto bad;
-    }
-    #endif
-    Py_XINCREF(local_tb);
-    Py_XINCREF(local_type);
-    Py_XINCREF(local_value);
-    *type = local_type;
-    *value = local_value;
-    *tb = local_tb;
-#if CYTHON_FAST_THREAD_STATE
-    #if CYTHON_USE_EXC_INFO_STACK
-    {
-        _PyErr_StackItem *exc_info = tstate->exc_info;
-        tmp_type = exc_info->exc_type;
-        tmp_value = exc_info->exc_value;
-        tmp_tb = exc_info->exc_traceback;
-        exc_info->exc_type = local_type;
-        exc_info->exc_value = local_value;
-        exc_info->exc_traceback = local_tb;
-    }
-    #else
-    tmp_type = tstate->exc_type;
-    tmp_value = tstate->exc_value;
-    tmp_tb = tstate->exc_traceback;
-    tstate->exc_type = local_type;
-    tstate->exc_value = local_value;
-    tstate->exc_traceback = local_tb;
-    #endif
-    Py_XDECREF(tmp_type);
-    Py_XDECREF(tmp_value);
-    Py_XDECREF(tmp_tb);
-#else
-    PyErr_SetExcInfo(local_type, local_value, local_tb);
-#endif
-    return 0;
-bad:
-    *type = 0;
-    *value = 0;
-    *tb = 0;
-    Py_XDECREF(local_type);
-    Py_XDECREF(local_value);
-    Py_XDECREF(local_tb);
-    return -1;
-}
-
 /* Import */
   static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level) {
     PyObject *empty_list = 0;
@@ -5831,6 +5307,161 @@ static CYTHON_INLINE void __Pyx_CyFunction_SetAnnotationsDict(PyObject *func, Py
         PyObject_GC_Track(op);
     }
     return op;
+}
+
+/* GetTopmostException */
+  #if CYTHON_USE_EXC_INFO_STACK
+static _PyErr_StackItem *
+__Pyx_PyErr_GetTopmostException(PyThreadState *tstate)
+{
+    _PyErr_StackItem *exc_info = tstate->exc_info;
+    while ((exc_info->exc_type == NULL || exc_info->exc_type == Py_None) &&
+           exc_info->previous_item != NULL)
+    {
+        exc_info = exc_info->previous_item;
+    }
+    return exc_info;
+}
+#endif
+
+/* SaveResetException */
+  #if CYTHON_FAST_THREAD_STATE
+static CYTHON_INLINE void __Pyx__ExceptionSave(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
+    #if CYTHON_USE_EXC_INFO_STACK
+    _PyErr_StackItem *exc_info = __Pyx_PyErr_GetTopmostException(tstate);
+    *type = exc_info->exc_type;
+    *value = exc_info->exc_value;
+    *tb = exc_info->exc_traceback;
+    #else
+    *type = tstate->exc_type;
+    *value = tstate->exc_value;
+    *tb = tstate->exc_traceback;
+    #endif
+    Py_XINCREF(*type);
+    Py_XINCREF(*value);
+    Py_XINCREF(*tb);
+}
+static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    #if CYTHON_USE_EXC_INFO_STACK
+    _PyErr_StackItem *exc_info = tstate->exc_info;
+    tmp_type = exc_info->exc_type;
+    tmp_value = exc_info->exc_value;
+    tmp_tb = exc_info->exc_traceback;
+    exc_info->exc_type = type;
+    exc_info->exc_value = value;
+    exc_info->exc_traceback = tb;
+    #else
+    tmp_type = tstate->exc_type;
+    tmp_value = tstate->exc_value;
+    tmp_tb = tstate->exc_traceback;
+    tstate->exc_type = type;
+    tstate->exc_value = value;
+    tstate->exc_traceback = tb;
+    #endif
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+}
+#endif
+
+/* PyErrExceptionMatches */
+  #if CYTHON_FAST_THREAD_STATE
+static int __Pyx_PyErr_ExceptionMatchesTuple(PyObject *exc_type, PyObject *tuple) {
+    Py_ssize_t i, n;
+    n = PyTuple_GET_SIZE(tuple);
+#if PY_MAJOR_VERSION >= 3
+    for (i=0; i<n; i++) {
+        if (exc_type == PyTuple_GET_ITEM(tuple, i)) return 1;
+    }
+#endif
+    for (i=0; i<n; i++) {
+        if (__Pyx_PyErr_GivenExceptionMatches(exc_type, PyTuple_GET_ITEM(tuple, i))) return 1;
+    }
+    return 0;
+}
+static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err) {
+    PyObject *exc_type = tstate->curexc_type;
+    if (exc_type == err) return 1;
+    if (unlikely(!exc_type)) return 0;
+    if (unlikely(PyTuple_Check(err)))
+        return __Pyx_PyErr_ExceptionMatchesTuple(exc_type, err);
+    return __Pyx_PyErr_GivenExceptionMatches(exc_type, err);
+}
+#endif
+
+/* GetException */
+  #if CYTHON_FAST_THREAD_STATE
+static int __Pyx__GetException(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb)
+#else
+static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb)
+#endif
+{
+    PyObject *local_type, *local_value, *local_tb;
+#if CYTHON_FAST_THREAD_STATE
+    PyObject *tmp_type, *tmp_value, *tmp_tb;
+    local_type = tstate->curexc_type;
+    local_value = tstate->curexc_value;
+    local_tb = tstate->curexc_traceback;
+    tstate->curexc_type = 0;
+    tstate->curexc_value = 0;
+    tstate->curexc_traceback = 0;
+#else
+    PyErr_Fetch(&local_type, &local_value, &local_tb);
+#endif
+    PyErr_NormalizeException(&local_type, &local_value, &local_tb);
+#if CYTHON_FAST_THREAD_STATE
+    if (unlikely(tstate->curexc_type))
+#else
+    if (unlikely(PyErr_Occurred()))
+#endif
+        goto bad;
+    #if PY_MAJOR_VERSION >= 3
+    if (local_tb) {
+        if (unlikely(PyException_SetTraceback(local_value, local_tb) < 0))
+            goto bad;
+    }
+    #endif
+    Py_XINCREF(local_tb);
+    Py_XINCREF(local_type);
+    Py_XINCREF(local_value);
+    *type = local_type;
+    *value = local_value;
+    *tb = local_tb;
+#if CYTHON_FAST_THREAD_STATE
+    #if CYTHON_USE_EXC_INFO_STACK
+    {
+        _PyErr_StackItem *exc_info = tstate->exc_info;
+        tmp_type = exc_info->exc_type;
+        tmp_value = exc_info->exc_value;
+        tmp_tb = exc_info->exc_traceback;
+        exc_info->exc_type = local_type;
+        exc_info->exc_value = local_value;
+        exc_info->exc_traceback = local_tb;
+    }
+    #else
+    tmp_type = tstate->exc_type;
+    tmp_value = tstate->exc_value;
+    tmp_tb = tstate->exc_traceback;
+    tstate->exc_type = local_type;
+    tstate->exc_value = local_value;
+    tstate->exc_traceback = local_tb;
+    #endif
+    Py_XDECREF(tmp_type);
+    Py_XDECREF(tmp_value);
+    Py_XDECREF(tmp_tb);
+#else
+    PyErr_SetExcInfo(local_type, local_value, local_tb);
+#endif
+    return 0;
+bad:
+    *type = 0;
+    *value = 0;
+    *tb = 0;
+    Py_XDECREF(local_type);
+    Py_XDECREF(local_value);
+    Py_XDECREF(local_tb);
+    return -1;
 }
 
 /* CLineInTraceback */

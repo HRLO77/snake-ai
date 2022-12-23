@@ -4,11 +4,12 @@ import random
 import keyboard
 import numpy as np
 import tracemalloc
-
+import sys
 
 class Environment:
     '''Represents the snake game and its agent (the snake)'''
   
+    END = (lambda **k: k)(**{'end': '\r'})
     def setup(self):
         '''sets up the game (if training, run .reset() instead)'''
         self.position = {}
@@ -31,11 +32,11 @@ class Environment:
 
     def refresh(self,):
         '''Renders the game.'''
-        print(f'\033[{self.cube}A\033[0m{self.TO_CHAR}\n' + f"\033[0m".join(f"\033[0m".join(i) for i in np.array(tuple(self.position.values()), dtype=str)[:self.cube**2].reshape((self.cube, self.cube))), end='\r'
+        sys.stdout.write(f'\033[{self.cube}A\033[0m{self.TO_CHAR}\n' + f"\033[0m".join(f"\033[0m".join(i) for i in np.array(tuple(self.position.values()), dtype=str)[:self.cube**2].reshape((self.cube, self.cube))) + ' \r '
 )
 
 
-    def random_food(self,) -> tuple[int, int]:
+    def random_food(self,):
         '''Replaces a random blank space in the grid with an apple.'''
         self.eaten = False
         while True:
@@ -182,21 +183,21 @@ class Environment:
         dir = self.dir
         apple = self.apple
         current_dir = dir
-        apple_dir = [0, 0, 0, 0]
-        if (self.my_pos[0][1] - apple[1]) > 0:
-            apple_dir[0] = 1
-        elif (self.my_pos[0][1] - apple[1]) < 0:
-            apple_dir[0] = 0
-            apple_dir[2] = 1
-        elif (self.my_pos[0][1] - apple[1]) == 0:
-            pass
-        if (self.my_pos[0][0] - apple[0]) > 0:
-            apple_dir[3] = 1
-        elif (self.my_pos[0][0] - apple[0]) < 0:
-            apple_dir[3] = 0
-            apple_dir[1] = 1
-        elif (self.my_pos[0][0] - apple[0]) == 0:
-            pass
+        # apple_dir = [0, 0, 0, 0]
+        # if (self.my_pos[0][1] - apple[1]) > 0:
+        #     apple_dir[0] = 1
+        # elif (self.my_pos[0][1] - apple[1]) < 0:
+        #     apple_dir[0] = 0
+        #     apple_dir[2] = 1
+        # elif (self.my_pos[0][1] - apple[1]) == 0:
+        #     pass
+        # if (self.my_pos[0][0] - apple[0]) > 0:
+        #     apple_dir[3] = 1
+        # elif (self.my_pos[0][0] - apple[0]) < 0:
+        #     apple_dir[3] = 0
+        #     apple_dir[1] = 1
+        # elif (self.my_pos[0][0] - apple[0]) == 0:
+        #     pass
         pos = [*self.my_pos[0]]
         # danger[0] = (pos[1] + 1) == cube
         # danger[1] = (pos[0] - 1) == cube
@@ -224,7 +225,6 @@ class Environment:
         #     else:
         #         danger[3] = True
         # danger = [int(i) for i in danger]
-        apple_dir = [int(i) for i in apple_dir]
         blank = f"\033[48;2;0;0;0m"
         snake = f"\033[48;2;256;256;256m"
         food = f"\033[48;2;256;0;0m"
@@ -253,8 +253,8 @@ class Environment:
                 encoded += [[0, 0]*pad_out]
         
         encoded = tuple([tuple(i) for i in encoded])
-        return (*apple_dir, {'up': 0, 'left': 1, 'down': 2, 'right':\
-            3}[current_dir], encoded)      
+        return (self.apple, {'up': 0, 'left': 1, 'down': 2, 'right':\
+            3}[current_dir], encoded)
     
     def reset(self):
         '''Resets the environment.'''
