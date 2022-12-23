@@ -26,7 +26,7 @@ See ./training.mp4 for how the model progresses through training.
 To make the computer play after training, run `python play.py` and open the pickle file you want the qtable from.
 ## New states!
 For more accurate (but longer, slower, heavier training) more accurate states are returned for the agent.
-* An encoded 5x5 grid around the head of the snake is returned along with the rest of the previous state.
+* An encoded 7x7 grid around the head of the snake is returned along with the rest of the previous state.
 
 This provides far more states for more precision to update!
 
@@ -34,7 +34,7 @@ However, because of the complexity of this extra item, qtable values cannot be i
 
 So during training, states that have not be recorded are added on the training (like interpreting VS compiling).
 
-I updated qtable values for 100,000 epochs and stored them in *qtable.pickle*, you can randomize values of the dictionary for your own training if you wish.
+I updated qtable values for 100,000,000 epochs and stored them in *qtable.pickle*, you can randomize values of the dictionary for your own training if you wish.
 ```python
 from game_class import Environment
 import random
