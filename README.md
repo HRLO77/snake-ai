@@ -5,12 +5,12 @@ A reinforcement learning algorithm written in python using numpy.
 ## playing
 To play snake on the terminal yourself, run `python console.py`.
 ## training
-To train your computer to play snake, run `python train.py` with your hyper-parameters.
+To train your computer to play snake, run `python def_train.py` with your hyper-parameters.
 * epsilon
 * gamma
 * epochs
 * decay
-
+(note that compiled.py is def_train.py with current hyper-parameters compiled using cython)
 Epsilon is a float between 0-1, representing the chance of random actions taken to explore the environment.
 
 Gamma is the discount factor (see the Bellman equation), how much the model agent should give priority to long-term rewards.
@@ -34,7 +34,7 @@ However, because of the complexity of this extra item, qtable values cannot be i
 
 So during training, states that have not be recorded are added on the training (like interpreting VS compiling).
 
-I updated qtable values for 100,000,000 epochs and stored them in *qtable.pickle*, you can randomize values of the dictionary for your own training if you wish.
+I updated qtable values stored them in *qtable.pickle*, you can randomize values of the dictionary for your own training if you wish.
 ```python
 from game_class import Environment
 import random
