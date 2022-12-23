@@ -266,7 +266,7 @@ class Environment:
     @staticmethod
     def gen():
         '''Loads the q-table.'''
-        return {}
+        with open('./qtable.pickle', 'rb') as f:return __import__('pickle').load(f)
         
     @staticmethod
     def new(start_len: int = int(10e5)):
