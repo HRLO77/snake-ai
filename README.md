@@ -27,8 +27,9 @@ For more information on the model learns, see the [Bellman equation](https://en.
 To make the computer play after training, run `python play.py` and open the pickle file you want the qtable from.
 ## New states!
 For more accurate (but longer, slower, heavier training) more accurate states are returned for the agent.
-* An encoded 7x7 grid around the head of the snake is returned along with the rest of the previous state.
-* apple position instead of quadrant
+* Entire encoded grid
+* Snake size
+* direction
 
 This provides far more states for more precision to update!
 
@@ -40,12 +41,15 @@ I updated qtable values stored them in *qtable.pickle*, you can randomize values
 ```python
 from game_class import Environment
 import random
-env = Environment(cube=50)  # a 50x50 grid with '@' as the character used.
+env: game_class.Environment = Environment(cube=6)  # a 6x6 grid
 state, reward, dead, eaten = env.reset()  # start the environment
 env.random_food()  # spawn an apple
-state: tuple[int] = env.get_current_state()  # get the current state
-qtable = Environment.gen()  # load the q-table
+state, reward, dead, eaten = env.get_current_state()  # get the current state
+qtable: dict[tuple[int | tuple[int]], tuple[float]] = Environment.gen()  # load the q-table
 qtable = {i: [random.random() for i in  '*'*4]for i in qtable.keys()}  # randomize qtable values
 ```
+## Neural Network
+Using the updated q-table and the Bellman equation for reinforcement learning (very accurate) it can be paired with basic Neural Networks for even more power! (See NN.py)
+NN.py is a simple DNN with the purpose of using incomplete q-table data to continue making accurate predictions for states that are not accounted for.
 # end
 Thanks for checking out this repository!

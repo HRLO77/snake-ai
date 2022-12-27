@@ -5,7 +5,6 @@ import keyboard
 import numpy as np
 import tracemalloc
 import sys
-
 class Environment:
     '''Represents the snake game and its agent (the snake)'''
   
@@ -66,7 +65,6 @@ class Environment:
         self.to_call = []
         self.dead = False
         tracemalloc.start()
-        assert cube >= 7, "Grid must be 6x6 or greater"
         if allow_keys:
             def func(args: keyboard._keyboard_event.KeyboardEvent):
                 if json.loads(args.to_json())["event_type"] == "down":
@@ -178,83 +176,7 @@ class Environment:
     def get_current_state(self):
         '''Returns the current state of the environment from the agents perspective.
         Returns an array with 1024 possible states.'''
-        self.my_pos = self.my_pos
-        cube = self.cube
-        dir = self.dir
-        apple = self.apple
-        current_dir = dir
-        # apple_dir = [0, 0, 0, 0]
-        # if (self.my_pos[0][1] - apple[1]) > 0:
-        #     apple_dir[0] = 1
-        # elif (self.my_pos[0][1] - apple[1]) < 0:
-        #     apple_dir[0] = 0
-        #     apple_dir[2] = 1
-        # elif (self.my_pos[0][1] - apple[1]) == 0:
-        #     pass
-        # if (self.my_pos[0][0] - apple[0]) > 0:
-        #     apple_dir[3] = 1
-        # elif (self.my_pos[0][0] - apple[0]) < 0:
-        #     apple_dir[3] = 0
-        #     apple_dir[1] = 1
-        # elif (self.my_pos[0][0] - apple[0]) == 0:
-        #     pass
-        pos = [*self.my_pos[0]]
-        # danger[0] = (pos[1] + 1) == cube
-        # danger[1] = (pos[0] - 1) == cube
-        # danger[2] = (pos[1] - 1) == cube
-        # danger[3] = (pos[0] + 1) == cube
-        # if not danger[0]:
-        #     if (pos[0], pos[1]+1) in position:
-        #         danger[0] = '256;256;256' in position[(pos[0], pos[1]+1)]# up
-        #     else:
-        #         danger[0] = True
-        # if not danger[1]:
-        #     if (pos[0]-1, pos[1]) in position:
-        #         danger[1] = '256;256;256' in position[(pos[0]-1, pos[1])]
-        #     else:
-        #         danger[1] = True# left
-        # if not danger[2]:
-        #     if (pos[0], pos[1]-1) in position:
-        #         danger[2] = '256;256;256' in position[(pos[0], pos[1]-1)]
-        #     else:
-        #         danger[2] = True
-        #     # dowm
-        # if not danger[3]:
-        #     if (pos[0]+1, pos[1]) in position:
-        #         danger[3] = '256;256;256' in position[(pos[0]+1, pos[1])]# right
-        #     else:
-        #         danger[3] = True
-        # danger = [int(i) for i in danger]
-        blank = f"\033[48;2;0;0;0m"
-        snake = f"\033[48;2;256;256;256m"
-        food = f"\033[48;2;256;0;0m"
-        encoded: list[list[int]] = np.array([{blank: 0, snake: 1, food: 2}[i.replace('\033[0m', '').replace(self.TO_CHAR, '').replace('\n', '').strip()] for i in self.position.values()]).reshape((cube, cube)).tolist()
-        ysub: int = pos[0]-3 if pos[0] > 3 else 0
-        yadd: int = pos[0]+4 if pos[0] < self.cube-3 else self.cube
-        xsub: int = pos[1]-3 if pos[1] > 3 else 0
-        xadd: int = pos[1]+4 if pos[1] < self.cube-3 else self.cube
-        encoded: list[list[int]] = encoded[ysub:yadd]
-        encoded = [i[xsub: xadd] for i in encoded]
-        outer_len: int = len(encoded)
-        
-        inner_len: int = len(encoded[0])
-        pad_in: int = 2-inner_len
-        pad_out: int = 2-outer_len
-        pad_in_where: bool = inner_len == 6
-        pad_out_where: bool = outer_len ==6
-
-        if pad_in > 0:
-            if pad_in_where:
-                encoded = [i + [0]*pad_in for i in encoded if len(i) < 2]
-            else:
-                encoded = [[0]*pad_in + i for i in encoded if len(i) < 2]
-        if pad_out > 0:
-            if pad_out_where:
-                encoded += [[0, 0]*pad_out]
-        
-        encoded = tuple([tuple(i) for i in encoded])
-        return (self.apple, {'up': 0, 'left': 1, 'down': 2, 'right':\
-            3}[current_dir], encoded)
+        return (self.size, {'up': 0, 'left': 1, 'down': 2, 'right':3}[self.dir], tuple(tuple(i) for i in np.array([{f"\033[48;2;0;0;0m": 0, f"\033[48;2;256;256;256m": 1, f"\033[48;2;256;0;0m": 2}[i.replace('\033[0m', '').replace(self.TO_CHAR, '').replace('\n', '').strip()] for i in self.position.values()], np.int8).reshape((self.cube, self.cube))))
     
     def reset(self):
         '''Resets the environment.'''
@@ -267,25 +189,3 @@ class Environment:
     def gen():
         '''Loads the q-table.'''
         with open('./qtable.pickle', 'rb') as f:return __import__('pickle').load(f)
-        
-    @staticmethod
-    def new(start_len: int = int(10e5)):
-        '''Instantiates a q-table.
-        :param start_len: The amount of states to start the qtable with (more can be added later in training).'''
-        s = set()
-        # with open('./test.pickle', 'rb') as f:s=pickle.load(f)
-        possib = [0]*25 + [1]*24
-        for b in '*'*start_len:
-            tried = possib.copy()  # type: ignore
-            np.random.shuffle(tried)
-            tried = tried[:25]
-            rand_ind = (3, 3)
-            while rand_ind == (3,3):
-                rand_ind = (random.randint(0,4), random.randint(0,4))
-            tried: list[list[int]] = np.array(tried).reshape((5, 5)).tolist()
-            tried[3][3] = 1
-            tried[rand_ind[0]][rand_ind[1]] = 2
-            tried = [tuple(i) for i in tried]
-            s.add((tuple([random.choice([0, 1]) for i in '~'*8] +
-                        [random.choice([0, 1, 2, 3])] + tried)))
-        return {i: [random.random() for i in '_'*4] for i in s}

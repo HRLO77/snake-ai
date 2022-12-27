@@ -16,9 +16,9 @@ epsilon = 1.  # same for epsilon
 decay = 0.01  # decay is alright
 qtable: dict[tuple, list] = Environment.gen()  # load a qtable
 
-env = Environment()  # start the environment
+env = Environment(cube=int(input('Cube (integer): ')))  # start the environment
 env.reset()  # reset the environment
-fast = False  # cut down on train time
+fast = True  # cut down on train time
 try:
     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this 
     def f():
