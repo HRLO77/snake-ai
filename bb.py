@@ -6,6 +6,14 @@ def sigmoid(x):
 def softmax(x):
     return(np.exp(x)/np.exp(x).sum())
 
+def ReLU(x: np.ndarray):
+    return np.maximum(0, x)
+ALPHA = 0.25
+
+def elu(x: np.ndarray):
+    if x.any() < 0: return ALPHA * (np.exp(x) - 1)
+    else: return x
+    
 class DenseLayer:
     """
     Layers of BP neural network
@@ -80,7 +88,8 @@ class BPNN:
     Back Propagation Neural Network model
     """
 
-    def __init__(self):
+    def __init__(self, activation=elu):
+        self.activation = activation
         self.layers = []
         self.train_huber = []
         self.fig_loss = plt.figure()
@@ -125,17 +134,17 @@ class BPNN:
                 # back propagation: the input_layer does not upgrade
                 for layer in self.layers[:0:-1]:
                     gradient = layer.back_propagation(gradient)
-            mse = loss
-            self.train_huber.append(mse)
+            mae = loss
+            self.train_huber.append(mae)
             self.plot_loss()
-            print(f'Epoch {_} - loss: {mse} - alpha: {ALPHA}')
-            if mse < self.accuracy:
+            print(f'Epoch {_} - loss: {mae} - alpha: {ALPHA}')
+            if mae < self.accuracy:
                 print("----达到精度----")
-                return mse
+                return mae
     def cal_loss(self, ydata, xdata):
         # print(ydata, xdata)
-        self.loss = np.sum(np.power((ydata - xdata), 2))
-        self.loss_gradient = elu(xdata - ydata)
+        self.loss = np.mean(np.abs(xdata - ydata))
+        self.loss_gradient = self.activation(xdata - ydata)
         # vector (shape is the same as _ydata.shape)
         return self.loss.tolist(), self.loss_gradient
 
@@ -149,12 +158,8 @@ class BPNN:
         plt.show()
         plt.pause(0.1)
 
-def ReLU(x: np.ndarray):
-    return np.maximum(0, x)
-ALPHA = 0.25
-def elu(x: np.ndarray):
-    if x.any() < 0: return ALPHA * (np.exp(x) - 1)
-    else: return x
+
+    
 def example():
     x = []
     y = []
@@ -171,10 +176,11 @@ def example():
     
     x = np.array(x)
     y = np.asmatrix(y)
-    model = BPNN()
-    for i in (5, 5, 4):
+    model = BPNN(elu)
+    for i in (5, 5, 5, 4):
         model.add_layer(DenseLayer(i, elu, 0.001))
     model.build()
     model.summary()
-    model.train(xdata=x, ydata=y, epochs=50, accuracy=0.1)
+    model.train(xdata=x, ydata=y, epochs=100, accuracy=0.1)
 
+example()
