@@ -4,6 +4,7 @@ from game_class import Environment
 import numpy as np
 import pickle
 import pyximport
+import bb
 pyximport.install(True, True,)
 
 # from tensorflow import function
@@ -18,7 +19,7 @@ qtable: dict[tuple, list] = Environment.gen()  # load a qtable
 
 env = Environment(cube=int(input('Cube (integer): ')))  # start the environment
 env.reset()  # reset the environment
-fast = True  # cut down on train time
+fast = False  # cut down on train time
 try:
     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this 
     def f():
@@ -69,5 +70,6 @@ try:
     f()
 except KeyboardInterrupt:
     pass
+exit()
 print('saving')
 with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)

@@ -9,3 +9,4 @@ pyvirtualdisplay
 pyglet
 tf_agents
 jax
+matplotlib

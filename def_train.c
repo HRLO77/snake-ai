@@ -1478,6 +1478,7 @@ int __pyx_module_is_main_def_train = 0;
 /* Implementation of 'def_train' */
 static PyObject *__pyx_builtin_input;
 static PyObject *__pyx_builtin_KeyboardInterrupt;
+static PyObject *__pyx_builtin_exit;
 static PyObject *__pyx_builtin_open;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_max;
@@ -1498,7 +1499,7 @@ static const char __pyx_k_cube[] = "cube";
 static const char __pyx_k_dead[] = "dead";
 static const char __pyx_k_done[] = "done";
 static const char __pyx_k_dump[] = "dump";
-static const char __pyx_k_exit[] = "__exit__";
+static const char __pyx_k_exit[] = "exit";
 static const char __pyx_k_fast[] = "fast";
 static const char __pyx_k_file[] = "file";
 static const char __pyx_k_main[] = "__main__";
@@ -1519,6 +1520,7 @@ static const char __pyx_k_state[] = "state";
 static const char __pyx_k_steps[] = "steps";
 static const char __pyx_k_action[] = "action";
 static const char __pyx_k_epochs[] = "epochs";
+static const char __pyx_k_exit_2[] = "__exit__";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_qtable[] = "qtable";
@@ -1568,6 +1570,7 @@ static PyObject *__pyx_n_s_epochs;
 static PyObject *__pyx_n_s_epsilon;
 static PyObject *__pyx_n_s_et;
 static PyObject *__pyx_n_s_exit;
+static PyObject *__pyx_n_s_exit_2;
 static PyObject *__pyx_n_s_f;
 static PyObject *__pyx_n_s_fast;
 static PyObject *__pyx_n_s_file;
@@ -2777,6 +2780,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_epsilon, __pyx_k_epsilon, sizeof(__pyx_k_epsilon), 0, 0, 1, 1},
   {&__pyx_n_s_et, __pyx_k_et, sizeof(__pyx_k_et), 0, 0, 1, 1},
   {&__pyx_n_s_exit, __pyx_k_exit, sizeof(__pyx_k_exit), 0, 0, 1, 1},
+  {&__pyx_n_s_exit_2, __pyx_k_exit_2, sizeof(__pyx_k_exit_2), 0, 0, 1, 1},
   {&__pyx_n_s_f, __pyx_k_f, sizeof(__pyx_k_f), 0, 0, 1, 1},
   {&__pyx_n_s_fast, __pyx_k_fast, sizeof(__pyx_k_fast), 0, 0, 1, 1},
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
@@ -2823,7 +2827,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_input = __Pyx_GetBuiltinName(__pyx_n_s_input); if (!__pyx_builtin_input) __PYX_ERR(0, 19, __pyx_L1_error)
   __pyx_builtin_KeyboardInterrupt = __Pyx_GetBuiltinName(__pyx_n_s_KeyboardInterrupt); if (!__pyx_builtin_KeyboardInterrupt) __PYX_ERR(0, 70, __pyx_L1_error)
-  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_builtin_exit = __Pyx_GetBuiltinName(__pyx_n_s_exit); if (!__pyx_builtin_exit) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 74, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 26, __pyx_L1_error)
   __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_n_s_max); if (!__pyx_builtin_max) __PYX_ERR(0, 41, __pyx_L1_error)
   return 0;
@@ -2851,7 +2856,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * env = Environment(cube=int(input('Cube (integer): ')))  # start the environment             # <<<<<<<<<<<<<<
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  */
   __pyx_tuple__3 = PyTuple_Pack(1, __pyx_kp_s_Cube_integer); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
@@ -2869,15 +2874,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__4);
   __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(0, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_def_train_py, __pyx_n_s_f, 24, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 24, __pyx_L1_error)
 
-  /* "def_train.py":73
- *     pass
+  /* "def_train.py":74
+ * exit()
  * print('saving')
  * with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)             # <<<<<<<<<<<<<<
  */
-  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_kp_s_qtable_pickle, __pyx_n_s_wb); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(2, __pyx_kp_s_qtable_pickle, __pyx_n_s_wb); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_tuple__7 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(3, Py_None, Py_None, Py_None); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 74, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
   __Pyx_RefNannyFinishContext();
@@ -3343,7 +3348,7 @@ if (!__Pyx_RefNanny) {
  * 
  * env = Environment(cube=int(input('Cube (integer): ')))  # start the environment             # <<<<<<<<<<<<<<
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Environment); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -3367,7 +3372,7 @@ if (!__Pyx_RefNanny) {
  * 
  * env = Environment(cube=int(input('Cube (integer): ')))  # start the environment
  * env.reset()  # reset the environment             # <<<<<<<<<<<<<<
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:
  */
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_env); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 20, __pyx_L1_error)
@@ -3383,15 +3388,15 @@ if (!__Pyx_RefNanny) {
   /* "def_train.py":21
  * env = Environment(cube=int(input('Cube (integer): ')))  # start the environment
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time             # <<<<<<<<<<<<<<
+ * fast = False  # cut down on train time             # <<<<<<<<<<<<<<
  * try:
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fast, Py_True) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_fast, Py_False) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
 
   /* "def_train.py":22
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:             # <<<<<<<<<<<<<<
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():
@@ -3433,7 +3438,7 @@ if (!__Pyx_RefNanny) {
 
       /* "def_train.py":22
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:             # <<<<<<<<<<<<<<
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():
@@ -3454,7 +3459,7 @@ if (!__Pyx_RefNanny) {
  *     f()
  * except KeyboardInterrupt:             # <<<<<<<<<<<<<<
  *     pass
- * print('saving')
+ * exit()
  */
     __pyx_t_8 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_KeyboardInterrupt);
     if (__pyx_t_8) {
@@ -3466,7 +3471,7 @@ if (!__Pyx_RefNanny) {
 
     /* "def_train.py":22
  * env.reset()  # reset the environment
- * fast = True  # cut down on train time
+ * fast = False  # cut down on train time
  * try:             # <<<<<<<<<<<<<<
  *     # @function(jit_compile=True, reduce_retracing=True)  # if you want to jit compile training uncomment this
  *     def f():
@@ -3487,24 +3492,35 @@ if (!__Pyx_RefNanny) {
   /* "def_train.py":72
  * except KeyboardInterrupt:
  *     pass
- * print('saving')             # <<<<<<<<<<<<<<
+ * exit()             # <<<<<<<<<<<<<<
+ * print('saving')
  * with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)
  */
-  if (__Pyx_PrintOne(0, __pyx_n_s_saving) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_builtin_exit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "def_train.py":73
  *     pass
+ * exit()
+ * print('saving')             # <<<<<<<<<<<<<<
+ * with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)
+ */
+  if (__Pyx_PrintOne(0, __pyx_n_s_saving) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
+
+  /* "def_train.py":74
+ * exit()
  * print('saving')
  * with open('./qtable.pickle', 'wb') as f:pickle.dump(qtable, f)             # <<<<<<<<<<<<<<
  */
   /*with:*/ {
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_open, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_7 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 73, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_exit_2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L8_error)
+    __pyx_t_4 = __Pyx_PyObject_LookupSpecial(__pyx_t_2, __pyx_n_s_enter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L8_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L8_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L8_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = __pyx_t_1;
@@ -3519,18 +3535,18 @@ if (!__Pyx_RefNanny) {
         __Pyx_XGOTREF(__pyx_t_5);
         __Pyx_XGOTREF(__pyx_t_9);
         /*try:*/ {
-          if (PyDict_SetItem(__pyx_d, __pyx_n_s_f, __pyx_t_4) < 0) __PYX_ERR(0, 73, __pyx_L12_error)
+          if (PyDict_SetItem(__pyx_d, __pyx_n_s_f, __pyx_t_4) < 0) __PYX_ERR(0, 74, __pyx_L12_error)
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pickle); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L12_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pickle); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_dump); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L12_error)
+          __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_dump); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_qtable); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L12_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_qtable); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_f); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L12_error)
+          __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_f); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
-          __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L12_error)
+          __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GIVEREF(__pyx_t_4);
           PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
@@ -3538,7 +3554,7 @@ if (!__Pyx_RefNanny) {
           PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_1);
           __pyx_t_4 = 0;
           __pyx_t_1 = 0;
-          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L12_error)
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L12_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3555,20 +3571,20 @@ if (!__Pyx_RefNanny) {
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
         /*except:*/ {
           __Pyx_AddTraceback("def_train", __pyx_clineno, __pyx_lineno, __pyx_filename);
-          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_3, &__pyx_t_2) < 0) __PYX_ERR(0, 73, __pyx_L14_except_error)
+          if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_3, &__pyx_t_2) < 0) __PYX_ERR(0, 74, __pyx_L14_except_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_t_2);
-          __pyx_t_4 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 73, __pyx_L14_except_error)
+          __pyx_t_4 = PyTuple_Pack(3, __pyx_t_1, __pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 74, __pyx_L14_except_error)
           __Pyx_GOTREF(__pyx_t_4);
           __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_4, NULL);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 73, __pyx_L14_except_error)
+          if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 74, __pyx_L14_except_error)
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_10);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-          if (__pyx_t_11 < 0) __PYX_ERR(0, 73, __pyx_L14_except_error)
+          if (__pyx_t_11 < 0) __PYX_ERR(0, 74, __pyx_L14_except_error)
           __pyx_t_12 = ((!(__pyx_t_11 != 0)) != 0);
           if (__pyx_t_12) {
             __Pyx_GIVEREF(__pyx_t_1);
@@ -3576,7 +3592,7 @@ if (!__Pyx_RefNanny) {
             __Pyx_XGIVEREF(__pyx_t_2);
             __Pyx_ErrRestoreWithState(__pyx_t_1, __pyx_t_3, __pyx_t_2);
             __pyx_t_1 = 0; __pyx_t_3 = 0; __pyx_t_2 = 0; 
-            __PYX_ERR(0, 73, __pyx_L14_except_error)
+            __PYX_ERR(0, 74, __pyx_L14_except_error)
           }
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3602,7 +3618,7 @@ if (!__Pyx_RefNanny) {
         if (__pyx_t_7) {
           __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_tuple__7, NULL);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 73, __pyx_L1_error)
+          if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 74, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
