@@ -88,14 +88,13 @@ class BPNN:
     Back Propagation Neural Network model
     """
 
-    def __init__(self, activation=elu):
-        self.activation = activation
+    def __init__(self):
         self.layers = []
         self.train_huber = []
         self.fig_loss = plt.figure()
         self.ax_loss = self.fig_loss.add_subplot(1, 1, 1)
 
-    def add_layer(self, layer):
+    def add_layer(self, layer: DenseLayer):
         self.layers.append(layer)
 
     def build(self):
@@ -110,6 +109,7 @@ class BPNN:
             print(f"------- layer {i} -------")
             print("weight.shape ", np.shape(layer.weight))
             print("bias.shape ", np.shape(layer.bias))
+            print('units', layer.units)
 
     def train(self, xdata, ydata, epochs, accuracy):
         self.epochs = epochs
@@ -144,7 +144,7 @@ class BPNN:
     def cal_loss(self, ydata, xdata):
         # print(ydata, xdata)
         self.loss = np.mean(np.abs(xdata - ydata))
-        self.loss_gradient = self.activation(xdata - ydata)
+        self.loss_gradient = elu(xdata - ydata)
         # vector (shape is the same as _ydata.shape)
         return self.loss.tolist(), self.loss_gradient
 
@@ -176,7 +176,7 @@ def example():
     
     x = np.array(x)
     y = np.asmatrix(y)
-    model = BPNN(elu)
+    model = BPNN()
     for i in (5, 5, 5, 4):
         model.add_layer(DenseLayer(i, elu, 0.001))
     model.build()
